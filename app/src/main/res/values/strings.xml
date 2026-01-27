@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">InfoCam</string>
+    <string name="login_title">Login</string>
+    <string name="username">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="login_button">Iniciar Sesión</string>
+    <string name="map_title">Mapa de Incidencias</string>
+    <string name="crear_incidencia_title">Nueva Incidencia</string>
+    <string name="nombre_incidencia">Nombre de la incidencia</string>
+    <string name="causa_incidencia">Causa</string>
+    <string name="fecha_inicio">Fecha Inicio (YYYY-MM-DD)</string>
+    <string name="fecha_fin">Fecha Fin (YYYY-MM-DD)</string>
+    <string name="guardar">Guardar</string>
+    <string name="favoritos_title">Mis Favoritos</string>
+    <string name="perfil_title">Mi Perfil</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
+    <string name="eliminar">Eliminar</string>
+    
+    <!-- Navigation -->
+    <string name="nav_map">Mapa</string>
+    <string name="nav_fav">Favoritos</string>
+    <string name="nav_profile">Perfil</string>
+    <string name="tipo_incidencia">Tipo de Incidencia</string>
+    <string name="camera_image">Imagen de cámara</string>
+    <string name="cerrar">Cerrar</string>
 </resources>

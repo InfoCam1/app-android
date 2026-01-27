@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="action_red">#FF3B30</color>
+    <color name="background_dark">#1C1C1E</color>
+    <color name="black">#FF000000</color>
+    <color name="colorAccent">@color/primary_green</color>
+    <color name="colorPrimary">@color/background_dark</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="primary_green">#2ECC71</color>
+    <color name="surface_dark">#2C2C2E</color>
+    <color name="text_gray">#8E8E93</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">InfoCam</string>
+    <string name="camera_image">Imagen de cámara</string>
+    <string name="causa_incidencia">Causa</string>
+    <string name="cerrar">Cerrar</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
+    <string name="crear_incidencia_title">Nueva Incidencia</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="favoritos_title">Mis Favoritos</string>
+    <string name="fecha_fin">Fecha Fin (YYYY-MM-DD)</string>
+    <string name="fecha_inicio">Fecha Inicio (YYYY-MM-DD)</string>
+    <string name="guardar">Guardar</string>
+    <string name="login_button">Iniciar Sesión</string>
+    <string name="login_title">Login</string>
+    <string name="map_title">Mapa de Incidencias</string>
+    <string name="nav_fav">Favoritos</string>
+    <string name="nav_map">Mapa</string>
+    <string name="nav_profile">Perfil</string>
+    <string name="nombre_incidencia">Nombre de la incidencia</string>
+    <string name="password">Contraseña</string>
+    <string name="perfil_title">Mi Perfil</string>
+    <string name="tipo_incidencia">Tipo de Incidencia</string>
+    <string name="username">Usuario</string>
+    <style name="RoundedImageView" parent="">
+        <item name="cornerSize">12dp</item>
+    </style>
+    <style name="Theme.InfoCam" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/background_dark</item>
+        <item name="colorPrimaryVariant">@color/surface_dark</item>
+        <item name="colorOnPrimary">@color/text_white</item>
+        
+        <item name="colorSecondary">@color/primary_green</item>
+        <item name="colorSecondaryVariant">@color/primary_green</item>
+        <item name="colorOnSecondary">@color/background_dark</item>
+        
+        <item name="android:statusBarColor">@color/background_dark</item>
+        <item name="android:windowBackground">@color/background_dark</item>
+        
+        
+        <item name="android:textColor">@color/text_white</item>
+        <item name="android:textColorHint">@color/text_gray</item>
+    </style>
+    <style name="Theme.InfoCam.Dialog" parent="Theme.MaterialComponents.Dialog">
+        <item name="android:windowBackground">@color/surface_dark</item>
+        <item name="colorSurface">@color/surface_dark</item>
+        <item name="colorOnSurface">@color/text_white</item>
+        <item name="colorPrimary">@color/primary_green</item>
+        <item name="colorAccent">@color/white</item>
+        <item name="android:textColorPrimary">@color/text_white</item>
+        <item name="android:textColor">@color/text_white</item>
+        <item name="android:textColorSecondary">@color/text_gray</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Theme.InfoCam.Dialog.Button</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Theme.InfoCam.Dialog.Button</item>
+    </style>
+    <style name="Theme.InfoCam.Dialog.Button" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="Theme.InfoCam.FullScreen" parent="Theme.InfoCam">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+</resources>

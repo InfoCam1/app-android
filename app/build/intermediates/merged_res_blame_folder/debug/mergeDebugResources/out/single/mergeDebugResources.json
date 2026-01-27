@@ -1,0 +1,214 @@
+[
+    {
+        "merged": "com.infocam.app-debug-33:/drawable_ic_location.xml.flat",
+        "source": "com.infocam.app-main-35:/drawable/ic_location.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/mipmap-xhdpi_ic_launcher_foreground.webp.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/mipmap-xhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_ic_person.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/drawable/ic_person.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/menu_menu_bottom_nav.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/menu/menu_bottom_nav.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/layout_activity_crear_incidencia.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/layout/activity_crear_incidencia.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_ic_phone.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/drawable/ic_phone.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/mipmap-xxxhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/layout_spinner_item.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/layout/spinner_item.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_bg_rounded_input.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/drawable/bg_rounded_input.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_ic_star_filled.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/drawable/ic_star_filled.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/mipmap-hdpi_ic_launcher_foreground.webp.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/mipmap-hdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/layout_activity_main.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/mipmap-xxhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/layout_item_favorito.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/layout/item_favorito.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/layout_activity_login.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/layout/activity_login.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/layout_fragment_map.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/layout/fragment_map.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_ic_marker_user.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/drawable/ic_marker_user.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_ic_lock.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/drawable/ic_lock.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_bg_rounded_button.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/drawable/bg_rounded_button.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_ic_help.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/drawable/ic_help.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/color_nav_item_state_list.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/color/nav_item_state_list.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_ic_marker_incident_user.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/drawable/ic_marker_incident_user.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/layout_info_window_camera.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/layout/info_window_camera.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_ic_marker_camera.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/drawable/ic_marker_camera.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/layout_activity_full_screen_image.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/layout/activity_full_screen_image.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_ic_marker_favorite.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/drawable/ic_marker_favorite.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_ic_menu.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/drawable/ic_menu.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/layout_fragment_favoritos.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/layout/fragment_favoritos.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_ic_launcher_background.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/layout_activity_register.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/layout/activity_register.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_ic_zoom_out.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/drawable/ic_zoom_out.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/mipmap-mdpi_ic_launcher_foreground.webp.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/mipmap-mdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_ic_email.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/drawable/ic_email.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_ic_marker_incident.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/drawable/ic_marker_incident.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_ic_back.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/drawable/ic_back.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_ic_star_border.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/drawable/ic_star_border.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/layout_fragment_perfil.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/layout/fragment_perfil.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_ic_user_avatar.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/drawable/ic_user_avatar.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_ic_location.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/drawable/ic_location.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_ic_zoom_in.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/drawable/ic_zoom_in.xml"
+    },
+    {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/layout_info_window_incident.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/layout/info_window_incident.xml"
+    }
+]

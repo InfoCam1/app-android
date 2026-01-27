@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Figma Palette -->
+    <color name="background_dark">#1C1C1E</color>
+    <color name="surface_dark">#2C2C2E</color>
+    <color name="primary_green">#2ECC71</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_gray">#8E8E93</color>
+    <color name="action_red">#FF3B30</color>
+
+    <!-- Android Standard Mapping -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+    <color name="colorPrimary">@color/background_dark</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">@color/primary_green</color>
 </resources>

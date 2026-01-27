@@ -1,0 +1,3 @@
+com.infocam.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme

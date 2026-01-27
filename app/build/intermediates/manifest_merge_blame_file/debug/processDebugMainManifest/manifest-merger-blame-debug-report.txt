@@ -1,0 +1,214 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.infocam"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <!-- Permisos requeridos -->
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:6:5-67
+12-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:6:22-64
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:7:5-79
+13-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:7:22-76
+14    <!-- Opcionales para ubicación usuario, aunque no estrictamente requeridos por la lógica actual, son comunes en mapas -->
+15    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+15-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:9:5-79
+15-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:9:22-76
+16    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+16-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:10:5-81
+16-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:10:22-78
+17    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+17-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:11:5-81
+17-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:11:22-78
+18
+19    <supports-screens
+19-->[org.osmdroid:osmdroid-android:6.1.18] /Users/erikamartin/.gradle/caches/transforms-4/b2aad2adf7998b6177d509d3022128b8/transformed/osmdroid-android-6.1.18/AndroidManifest.xml:9:5-12:40
+20        android:anyDensity="true"
+20-->[org.osmdroid:osmdroid-android:6.1.18] /Users/erikamartin/.gradle/caches/transforms-4/b2aad2adf7998b6177d509d3022128b8/transformed/osmdroid-android-6.1.18/AndroidManifest.xml:10:9-34
+21        android:largeScreens="true"
+21-->[org.osmdroid:osmdroid-android:6.1.18] /Users/erikamartin/.gradle/caches/transforms-4/b2aad2adf7998b6177d509d3022128b8/transformed/osmdroid-android-6.1.18/AndroidManifest.xml:11:9-36
+22        android:normalScreens="true" />
+22-->[org.osmdroid:osmdroid-android:6.1.18] /Users/erikamartin/.gradle/caches/transforms-4/b2aad2adf7998b6177d509d3022128b8/transformed/osmdroid-android-6.1.18/AndroidManifest.xml:12:9-37
+23
+24    <uses-feature
+24-->[org.osmdroid:osmdroid-android:6.1.18] /Users/erikamartin/.gradle/caches/transforms-4/b2aad2adf7998b6177d509d3022128b8/transformed/osmdroid-android-6.1.18/AndroidManifest.xml:14:5-16:36
+25        android:name="android.hardware.location.network"
+25-->[org.osmdroid:osmdroid-android:6.1.18] /Users/erikamartin/.gradle/caches/transforms-4/b2aad2adf7998b6177d509d3022128b8/transformed/osmdroid-android-6.1.18/AndroidManifest.xml:15:9-57
+26        android:required="false" />
+26-->[org.osmdroid:osmdroid-android:6.1.18] /Users/erikamartin/.gradle/caches/transforms-4/b2aad2adf7998b6177d509d3022128b8/transformed/osmdroid-android-6.1.18/AndroidManifest.xml:16:9-33
+27    <uses-feature
+27-->[org.osmdroid:osmdroid-android:6.1.18] /Users/erikamartin/.gradle/caches/transforms-4/b2aad2adf7998b6177d509d3022128b8/transformed/osmdroid-android-6.1.18/AndroidManifest.xml:17:5-19:36
+28        android:name="android.hardware.location.gps"
+28-->[org.osmdroid:osmdroid-android:6.1.18] /Users/erikamartin/.gradle/caches/transforms-4/b2aad2adf7998b6177d509d3022128b8/transformed/osmdroid-android-6.1.18/AndroidManifest.xml:18:9-53
+29        android:required="false" />
+29-->[org.osmdroid:osmdroid-android:6.1.18] /Users/erikamartin/.gradle/caches/transforms-4/b2aad2adf7998b6177d509d3022128b8/transformed/osmdroid-android-6.1.18/AndroidManifest.xml:19:9-33
+30    <uses-feature
+30-->[org.osmdroid:osmdroid-android:6.1.18] /Users/erikamartin/.gradle/caches/transforms-4/b2aad2adf7998b6177d509d3022128b8/transformed/osmdroid-android-6.1.18/AndroidManifest.xml:20:5-22:36
+31        android:name="android.hardware.telephony"
+31-->[org.osmdroid:osmdroid-android:6.1.18] /Users/erikamartin/.gradle/caches/transforms-4/b2aad2adf7998b6177d509d3022128b8/transformed/osmdroid-android-6.1.18/AndroidManifest.xml:21:9-50
+32        android:required="false" />
+32-->[org.osmdroid:osmdroid-android:6.1.18] /Users/erikamartin/.gradle/caches/transforms-4/b2aad2adf7998b6177d509d3022128b8/transformed/osmdroid-android-6.1.18/AndroidManifest.xml:22:9-33
+33    <uses-feature
+33-->[org.osmdroid:osmdroid-android:6.1.18] /Users/erikamartin/.gradle/caches/transforms-4/b2aad2adf7998b6177d509d3022128b8/transformed/osmdroid-android-6.1.18/AndroidManifest.xml:23:5-25:36
+34        android:name="android.hardware.wifi"
+34-->[org.osmdroid:osmdroid-android:6.1.18] /Users/erikamartin/.gradle/caches/transforms-4/b2aad2adf7998b6177d509d3022128b8/transformed/osmdroid-android-6.1.18/AndroidManifest.xml:24:9-45
+35        android:required="false" />
+35-->[org.osmdroid:osmdroid-android:6.1.18] /Users/erikamartin/.gradle/caches/transforms-4/b2aad2adf7998b6177d509d3022128b8/transformed/osmdroid-android-6.1.18/AndroidManifest.xml:25:9-33
+36
+37    <permission
+37-->[androidx.core:core:1.9.0] /Users/erikamartin/.gradle/caches/transforms-4/c2be3eeff37a9ead1d2c3ad74ec6f1c4/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+38        android:name="com.infocam.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+38-->[androidx.core:core:1.9.0] /Users/erikamartin/.gradle/caches/transforms-4/c2be3eeff37a9ead1d2c3ad74ec6f1c4/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+39        android:protectionLevel="signature" />
+39-->[androidx.core:core:1.9.0] /Users/erikamartin/.gradle/caches/transforms-4/c2be3eeff37a9ead1d2c3ad74ec6f1c4/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+40
+41    <uses-permission android:name="com.infocam.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+41-->[androidx.core:core:1.9.0] /Users/erikamartin/.gradle/caches/transforms-4/c2be3eeff37a9ead1d2c3ad74ec6f1c4/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+41-->[androidx.core:core:1.9.0] /Users/erikamartin/.gradle/caches/transforms-4/c2be3eeff37a9ead1d2c3ad74ec6f1c4/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+42
+43    <application
+43-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:13:5-48:19
+44        android:allowBackup="true"
+44-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:14:9-35
+45        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+45-->[androidx.core:core:1.9.0] /Users/erikamartin/.gradle/caches/transforms-4/c2be3eeff37a9ead1d2c3ad74ec6f1c4/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+46        android:debuggable="true"
+47        android:extractNativeLibs="false"
+48        android:icon="@mipmap/ic_launcher"
+48-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:15:9-43
+49        android:label="@string/app_name"
+49-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:16:9-41
+50        android:roundIcon="@mipmap/ic_launcher_round"
+50-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:17:9-54
+51        android:supportsRtl="true"
+51-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:18:9-35
+52        android:testOnly="true"
+53        android:theme="@style/Theme.InfoCam"
+53-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:20:9-45
+54        android:usesCleartextTraffic="true" >
+54-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:19:9-44
+55
+56        <!-- Login es el Launcher -->
+57        <activity
+57-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:24:9-30:20
+58            android:name="com.infocam.ui.LoginActivity"
+58-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:24:19-51
+59            android:exported="true" >
+59-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:25:13-36
+60            <intent-filter>
+60-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:26:13-29:29
+61                <action android:name="android.intent.action.MAIN" />
+61-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:27:17-69
+61-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:27:25-66
+62
+63                <category android:name="android.intent.category.LAUNCHER" />
+63-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:28:17-77
+63-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:28:27-74
+64            </intent-filter>
+65        </activity>
+66        <activity
+66-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:32:9-34:61
+67            android:name="com.infocam.ui.RegisterActivity"
+67-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:32:19-54
+68            android:exported="false"
+68-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:33:13-37
+69            android:parentActivityName="com.infocam.ui.LoginActivity" />
+69-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:34:13-59
+70        <activity
+70-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:36:9-38:48
+71            android:name="com.infocam.ui.MainActivity"
+71-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:36:19-50
+72            android:exported="false"
+72-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:37:13-37
+73            android:label="@string/app_name" />
+73-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:38:13-45
+74        <activity
+74-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:40:9-42:39
+75            android:name="com.infocam.ui.CrearIncidenciaActivity"
+75-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:40:19-61
+76            android:exported="false"
+76-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:42:13-37
+77            android:parentActivityName="com.infocam.ui.MainActivity" />
+77-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:41:13-58
+78        <activity
+78-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:44:9-46:62
+79            android:name="com.infocam.ui.FullScreenImageActivity"
+79-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:44:19-61
+80            android:exported="false"
+80-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:45:13-37
+81            android:theme="@style/Theme.InfoCam.FullScreen" />
+81-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:46:13-60
+82
+83        <provider
+83-->[androidx.emoji2:emoji2:1.2.0] /Users/erikamartin/.gradle/caches/transforms-4/de12fd4a90e9ceb6479c9a6f0cbc06bf/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+84            android:name="androidx.startup.InitializationProvider"
+84-->[androidx.emoji2:emoji2:1.2.0] /Users/erikamartin/.gradle/caches/transforms-4/de12fd4a90e9ceb6479c9a6f0cbc06bf/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+85            android:authorities="com.infocam.androidx-startup"
+85-->[androidx.emoji2:emoji2:1.2.0] /Users/erikamartin/.gradle/caches/transforms-4/de12fd4a90e9ceb6479c9a6f0cbc06bf/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+86            android:exported="false" >
+86-->[androidx.emoji2:emoji2:1.2.0] /Users/erikamartin/.gradle/caches/transforms-4/de12fd4a90e9ceb6479c9a6f0cbc06bf/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+87            <meta-data
+87-->[androidx.emoji2:emoji2:1.2.0] /Users/erikamartin/.gradle/caches/transforms-4/de12fd4a90e9ceb6479c9a6f0cbc06bf/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+88                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+88-->[androidx.emoji2:emoji2:1.2.0] /Users/erikamartin/.gradle/caches/transforms-4/de12fd4a90e9ceb6479c9a6f0cbc06bf/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+89                android:value="androidx.startup" />
+89-->[androidx.emoji2:emoji2:1.2.0] /Users/erikamartin/.gradle/caches/transforms-4/de12fd4a90e9ceb6479c9a6f0cbc06bf/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+90            <meta-data
+90-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/erikamartin/.gradle/caches/transforms-4/9afc32a63415c3b141463f94e6d1311a/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:29:13-31:52
+91                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+91-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/erikamartin/.gradle/caches/transforms-4/9afc32a63415c3b141463f94e6d1311a/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:30:17-78
+92                android:value="androidx.startup" />
+92-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/erikamartin/.gradle/caches/transforms-4/9afc32a63415c3b141463f94e6d1311a/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:31:17-49
+93            <meta-data
+93-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/erikamartin/.gradle/caches/transforms-4/6dcb748be2dc761b6e4722175de59dba/transformed/profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+94                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+94-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/erikamartin/.gradle/caches/transforms-4/6dcb748be2dc761b6e4722175de59dba/transformed/profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+95                android:value="androidx.startup" />
+95-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/erikamartin/.gradle/caches/transforms-4/6dcb748be2dc761b6e4722175de59dba/transformed/profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+96        </provider>
+97
+98        <receiver
+98-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/erikamartin/.gradle/caches/transforms-4/6dcb748be2dc761b6e4722175de59dba/transformed/profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+99            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+99-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/erikamartin/.gradle/caches/transforms-4/6dcb748be2dc761b6e4722175de59dba/transformed/profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+100            android:directBootAware="false"
+100-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/erikamartin/.gradle/caches/transforms-4/6dcb748be2dc761b6e4722175de59dba/transformed/profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+101            android:enabled="true"
+101-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/erikamartin/.gradle/caches/transforms-4/6dcb748be2dc761b6e4722175de59dba/transformed/profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+102            android:exported="true"
+102-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/erikamartin/.gradle/caches/transforms-4/6dcb748be2dc761b6e4722175de59dba/transformed/profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+103            android:permission="android.permission.DUMP" >
+103-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/erikamartin/.gradle/caches/transforms-4/6dcb748be2dc761b6e4722175de59dba/transformed/profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+104            <intent-filter>
+104-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/erikamartin/.gradle/caches/transforms-4/6dcb748be2dc761b6e4722175de59dba/transformed/profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+105                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+105-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/erikamartin/.gradle/caches/transforms-4/6dcb748be2dc761b6e4722175de59dba/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+105-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/erikamartin/.gradle/caches/transforms-4/6dcb748be2dc761b6e4722175de59dba/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+106            </intent-filter>
+107            <intent-filter>
+107-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/erikamartin/.gradle/caches/transforms-4/6dcb748be2dc761b6e4722175de59dba/transformed/profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+108                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+108-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/erikamartin/.gradle/caches/transforms-4/6dcb748be2dc761b6e4722175de59dba/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+108-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/erikamartin/.gradle/caches/transforms-4/6dcb748be2dc761b6e4722175de59dba/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+109            </intent-filter>
+110            <intent-filter>
+110-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/erikamartin/.gradle/caches/transforms-4/6dcb748be2dc761b6e4722175de59dba/transformed/profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+111                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+111-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/erikamartin/.gradle/caches/transforms-4/6dcb748be2dc761b6e4722175de59dba/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+111-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/erikamartin/.gradle/caches/transforms-4/6dcb748be2dc761b6e4722175de59dba/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+112            </intent-filter>
+113            <intent-filter>
+113-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/erikamartin/.gradle/caches/transforms-4/6dcb748be2dc761b6e4722175de59dba/transformed/profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+114                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+114-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/erikamartin/.gradle/caches/transforms-4/6dcb748be2dc761b6e4722175de59dba/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+114-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/erikamartin/.gradle/caches/transforms-4/6dcb748be2dc761b6e4722175de59dba/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+115            </intent-filter>
+116        </receiver>
+117    </application>
+118
+119</manifest>

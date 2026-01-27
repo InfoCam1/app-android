@@ -1,0 +1,134 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <org.osmdroid.views.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Bottom Left Filter Button -->
+    <ImageButton
+        android:id="@+id/btnMenuFiltros"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="16dp"
+        android:background="@drawable/bg_rounded_button"
+        android:elevation="4dp"
+        android:src="@drawable/ic_menu"
+        app:tint="@color/background_dark" />
+
+    <!-- Filter Panel (Hidden by default) -->
+    <LinearLayout
+        android:id="@+id/panelFiltros"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btnMenuFiltros"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_rounded_button"
+        android:elevation="8dp"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:visibility="gone">
+
+        <CheckBox
+            android:id="@+id/cbFiltroCamaras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Mostrar Cámaras"
+            android:textColor="@color/background_dark" />
+
+        <CheckBox
+            android:id="@+id/cbFiltroIncidenciasGov"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Incidencias Oficiales"
+            android:textColor="@color/background_dark" />
+
+        <CheckBox
+            android:id="@+id/cbFiltroIncidenciasUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Incidencias Usuario"
+            android:textColor="@color/background_dark" />
+
+        <CheckBox
+            android:id="@+id/cbFiltroFavoritos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Solo Favoritos"
+            android:textColor="@color/background_dark" />
+
+        <Button
+            android:id="@+id/btnCerrarFiltros"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Aplicar Filtros"
+            android:textColor="@color/primary_green"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Zoom Controls -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="16dp">
+
+        <ImageButton
+            android:id="@+id/btnZoomIn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_rounded_button"
+            android:src="@drawable/ic_zoom_in"
+            app:tint="@color/background_dark"/>
+
+        <ImageButton
+            android:id="@+id/btnZoomOut"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_rounded_button"
+            android:src="@drawable/ic_zoom_out"
+            app:tint="@color/background_dark"/>
+            
+    </LinearLayout>
+    
+    <!-- Floating Action Button for Incident Report -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabReportar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_help"
+        app:backgroundTint="#FF5252"
+        app:tint="@android:color/white"
+        app:elevation="6dp" />
+
+    <!-- My Location Button (Above filters) -->
+    <ImageButton
+        android:id="@+id/btnMyLocation"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_above="@id/btnMenuFiltros"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_rounded_button"
+        android:elevation="4dp"
+        android:src="@drawable/ic_location" />
+
+</RelativeLayout>

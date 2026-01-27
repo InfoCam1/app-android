@@ -1,0 +1,6 @@
+com.infocam.test.app-jetified-annotation-experimental-1.3.0-0 /Users/erikamartin/.gradle/caches/9.0-milestone-1/transforms/435e2a7652ab22e68792c3d1bbc497b0/transformed/jetified-annotation-experimental-1.3.0/res
+com.infocam.test.app-jetified-core-1.5.0-1 /Users/erikamartin/.gradle/caches/9.0-milestone-1/transforms/c9568c27bdfd4019eeae48ab30e7aa78/transformed/jetified-core-1.5.0/res
+com.infocam.test.app-androidTest-2 /Users/erikamartin/Documents/InfoCam/app/build/generated/res/resValues/androidTest/debug
+com.infocam.test.app-mergeDebugAndroidTestResources-3 /Users/erikamartin/Documents/InfoCam/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
+com.infocam.test.app-mergeDebugAndroidTestResources-4 /Users/erikamartin/Documents/InfoCam/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
+com.infocam.test.app-merged_res-5 /Users/erikamartin/Documents/InfoCam/app/build/intermediates/merged_res/debugAndroidTest
