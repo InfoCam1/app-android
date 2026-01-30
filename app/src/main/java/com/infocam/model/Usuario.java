@@ -7,7 +7,7 @@ import java.util.ArrayList;
 // Modelo que representa al Usuario. Coincide con la respuesta del endpoint.
 
 public class Usuario {
-    private int id;
+    private Integer id;
 
     @SerializedName(value = "is_admin", alternate = { "admin" })
     private boolean isAdmin; // Desde la aplicación móvil, ningún usuario que se registre podrá ser nunca
@@ -32,7 +32,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(int id, boolean isAdmin, String username, String password, String nombre, String apellido,
+    public Usuario(Integer id, boolean isAdmin, String username, String password, String nombre, String apellido,
             String email, long telefono, String token) {
         this.id = id;
         this.isAdmin = isAdmin;
@@ -45,11 +45,11 @@ public class Usuario {
         this.token = token;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
