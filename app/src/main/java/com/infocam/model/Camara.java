@@ -1,9 +1,6 @@
 package com.infocam.model;
 
-/**
- * Modelo para las cámaras de tráfico.
- * Se mostrarán como marcadores AZULES en el mapa.
- */
+// Modelo para las cámaras de tráfico. Se mostrarán con un marcador verde en el mapa.
 public class Camara {
     private int id;
     private String nombre;
@@ -12,6 +9,7 @@ public class Camara {
     private String imagen; // URL de la imagen de la cámara
     private boolean activa;
 
+    // Siempre crearemos un par de constructores, uno vacío y otro con los datos del modelo, para poder llamarlo en caso de necesitarlo.
     public Camara() {
     }
 

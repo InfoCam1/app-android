@@ -1,18 +1,30 @@
 package com.infocam.model;
 
-/**
- * Modelo para las incidencias reportadas por usuarios.
- * Se mostrarán como marcadores ROJOS en el mapa.
- */
+import com.google.gson.annotations.SerializedName;
+
+// Modelo para las incidencias reportadas por usuarios. Estas podrán ser propias o del Gobierno Vasco (estas tendrán en el servidor un "externalId"). Se mostrarán con un marcados naranja, en caso de las propias, o rojo.
 public class Incidencia {
-    private int id;
+    private Integer id;
     private int idUsuario; // ID del usuario que creó la incidencia
+
+    @SerializedName("usuario")
+    private UsuarioNested usuario;
+
     private String externalId; // ID externa para incidencias de OpenData
     private String nombre;
     private String tipoIncidencia;
     private String causa;
+
+    private static class UsuarioNested {
+        int id;
+    }
+
+    @SerializedName(value = "fecha_inicio", alternate = { "fechaInicio" })
     private String fechaInicio;
+
+    @SerializedName(value = "fecha_fin", alternate = { "fechaFin" })
     private String fechaFin;
+
     private double latitud;
     private double longitud;
 
@@ -32,20 +44,29 @@ public class Incidencia {
         this.externalId = externalId;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
     public int getIdUsuario() {
+        if (idUsuario == 0 && usuario != null) {
+            return usuario.id;
+        }
         return idUsuario;
     }
 
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
+        // La API de Spring Boot prefiere recibir la relación como un objeto anidado
+        // "usuario": {"id": ...}
+        if (this.usuario == null) {
+            this.usuario = new UsuarioNested();
+        }
+        this.usuario.id = idUsuario;
     }
 
     public String getNombre() {

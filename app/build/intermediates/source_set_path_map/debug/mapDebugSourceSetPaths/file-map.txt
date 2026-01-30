@@ -27,10 +27,10 @@ com.infocam.app-drawerlayout-1.1.1-25 /Users/erikamartin/.gradle/caches/transfor
 com.infocam.app-appcompat-resources-1.6.1-26 /Users/erikamartin/.gradle/caches/transforms-4/ee3f6b7d49cac580ab32d4dafa2f9de8/transformed/appcompat-resources-1.6.1/res
 com.infocam.app-material-1.11.0-27 /Users/erikamartin/.gradle/caches/transforms-4/fbe0315f2ea84d5f190ed2e77da0b939/transformed/material-1.11.0/res
 com.infocam.app-lifecycle-livedata-core-2.6.1-28 /Users/erikamartin/.gradle/caches/transforms-4/fc2f4f589d0aad9f9fdbd3417fd6bfa4/transformed/lifecycle-livedata-core-2.6.1/res
-com.infocam.app-pngs-29 /Users/erikamartin/Documents/InfoCam/app/build/generated/res/pngs/debug
-com.infocam.app-resValues-30 /Users/erikamartin/Documents/InfoCam/app/build/generated/res/resValues/debug
-com.infocam.app-packageDebugResources-31 /Users/erikamartin/Documents/InfoCam/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
-com.infocam.app-packageDebugResources-32 /Users/erikamartin/Documents/InfoCam/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
-com.infocam.app-debug-33 /Users/erikamartin/Documents/InfoCam/app/build/intermediates/merged_res/debug/mergeDebugResources
-com.infocam.app-debug-34 /Users/erikamartin/Documents/InfoCam/app/src/debug/res
-com.infocam.app-main-35 /Users/erikamartin/Documents/InfoCam/app/src/main/res
+com.infocam.app-pngs-29 /Users/erikamartin/Documents/GitHub/app-android/app/build/generated/res/pngs/debug
+com.infocam.app-resValues-30 /Users/erikamartin/Documents/GitHub/app-android/app/build/generated/res/resValues/debug
+com.infocam.app-packageDebugResources-31 /Users/erikamartin/Documents/GitHub/app-android/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+com.infocam.app-packageDebugResources-32 /Users/erikamartin/Documents/GitHub/app-android/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+com.infocam.app-debug-33 /Users/erikamartin/Documents/GitHub/app-android/app/build/intermediates/merged_res/debug/mergeDebugResources
+com.infocam.app-debug-34 /Users/erikamartin/Documents/GitHub/app-android/app/src/debug/res
+com.infocam.app-main-35 /Users/erikamartin/Documents/GitHub/app-android/app/src/main/res

@@ -14,7 +14,7 @@ import com.infocam.R;
 import com.infocam.data.DataRepository;
 import com.infocam.data.SessionManager;
 import com.infocam.network.ApiCallback;
-import com.infocam.network.ServicioApi;
+import com.infocam.network.InfocamServiceClient;
 import com.infocam.model.Favorito;
 import com.infocam.model.Usuario;
 import java.util.List;
@@ -73,7 +73,7 @@ public class FavoritosFragment extends Fragment {
         String token = preferenciaSesion.getToken();
 
         // 1. Sincronizamos con el API Rest
-        ServicioApi.obtenerInstancia().conmutarFavorito(token, f.getIdCamara(), idUsuarioActual,
+        InfocamServiceClient.obtenerInstancia().conmutarFavorito(token, f.getIdCamara(), idUsuarioActual,
                 new ApiCallback<Void>() {
                     @Override
                     public void onSuccess(Void result) {

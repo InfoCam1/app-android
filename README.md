@@ -26,7 +26,7 @@
     *   `osmdroid`: Visualización de mapas offline/online.
     *   `Glide`: Carga eficiente de imágenes de cámaras.
     *   `Material Design 3`: Interfaz moderna y adaptable.
-    *   `Retrofit`: Comunicación con la API REST.
+    *   `Retrofit`: Comunicación avanzada y eficiente con la API REST (ahora implementado).
 
 ### Backend (Java API)
 *   **Framework**: Spring Boot 3.x

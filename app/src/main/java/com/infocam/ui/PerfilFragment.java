@@ -18,7 +18,7 @@ import com.infocam.data.DataRepository;
 import com.infocam.data.SessionManager;
 import com.infocam.model.Usuario;
 import com.infocam.network.ApiCallback;
-import com.infocam.network.ServicioApi;
+import com.infocam.network.InfocamServiceClient;
 
 /**
  * PerfilFragment: Información del usuario actual y cierre de sesión.
@@ -108,7 +108,7 @@ public class PerfilFragment extends Fragment {
 
         btnGuardar.setEnabled(false);
 
-        ServicioApi.obtenerInstancia().actualizarUsuario(tk, actual.getId(), n, em, t, pass,
+        InfocamServiceClient.obtenerInstancia().actualizarUsuario(tk, actual.getId(), n, em, t, pass,
                 new ApiCallback<Usuario>() {
                     @Override
                     public void onSuccess(Usuario nuevo) {

@@ -35,7 +35,7 @@ import com.infocam.model.Favorito;
 import com.infocam.model.Incidencia;
 import com.infocam.model.Usuario;
 import com.infocam.network.ApiCallback;
-import com.infocam.network.ServicioApi;
+import com.infocam.network.InfocamServiceClient;
 
 import org.osmdroid.config.Configuration;
 import org.osmdroid.events.MapEventsReceiver;
@@ -242,7 +242,7 @@ public class MapaFragment extends Fragment {
         }
 
         // Primero traemos los favoritos para saber qué icono poner a cada cámara
-        ServicioApi.obtenerInstancia().obtenerFavoritosUsuario(preferenciaSesion.getToken(), u.getId(),
+        InfocamServiceClient.obtenerInstancia().obtenerFavoritosUsuario(preferenciaSesion.getToken(), u.getId(),
                 new ApiCallback<List<Camara>>() {
                     @Override
                     public void onSuccess(List<Camara> result) {
@@ -266,7 +266,7 @@ public class MapaFragment extends Fragment {
             return;
         }
 
-        ServicioApi.obtenerInstancia().obtenerCamarasActivas(preferenciaSesion.getToken(),
+        InfocamServiceClient.obtenerInstancia().obtenerCamarasActivas(preferenciaSesion.getToken(),
                 new ApiCallback<List<Camara>>() {
                     @Override
                     public void onSuccess(List<Camara> result) {
@@ -309,7 +309,7 @@ public class MapaFragment extends Fragment {
         Usuario u = preferenciaSesion.obtenerUsuario();
         Integer idU = (u != null) ? u.getId() : null;
 
-        ServicioApi.obtenerInstancia().obtenerIncidencias(preferenciaSesion.getToken(), idU,
+        InfocamServiceClient.obtenerInstancia().obtenerIncidencias(preferenciaSesion.getToken(), idU,
                 new ApiCallback<List<Incidencia>>() {
                     @Override
                     public void onSuccess(List<Incidencia> result) {
@@ -418,7 +418,7 @@ public class MapaFragment extends Fragment {
             if (u == null)
                 return;
 
-            ServicioApi.obtenerInstancia().conmutarFavorito(preferenciaSesion.getToken(), cam.getId(), u.getId(),
+            InfocamServiceClient.obtenerInstancia().conmutarFavorito(preferenciaSesion.getToken(), cam.getId(), u.getId(),
                     new ApiCallback<Void>() {
                         @Override
                         public void onSuccess(Void result) {

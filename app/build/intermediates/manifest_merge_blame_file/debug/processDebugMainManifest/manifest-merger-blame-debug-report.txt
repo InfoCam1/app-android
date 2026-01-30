@@ -10,21 +10,21 @@
 10
 11    <!-- Permisos requeridos -->
 12    <uses-permission android:name="android.permission.INTERNET" />
-12-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:6:5-67
-12-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:6:22-64
+12-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:6:5-67
+12-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:6:22-64
 13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-13-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:7:5-79
-13-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:7:22-76
+13-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:7:5-79
+13-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:7:22-76
 14    <!-- Opcionales para ubicación usuario, aunque no estrictamente requeridos por la lógica actual, son comunes en mapas -->
 15    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-15-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:9:5-79
-15-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:9:22-76
+15-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:9:5-79
+15-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:9:22-76
 16    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-16-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:10:5-81
-16-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:10:22-78
+16-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:10:5-81
+16-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:10:22-78
 17    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-17-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:11:5-81
-17-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:11:22-78
+17-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:11:5-81
+17-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:11:22-78
 18
 19    <supports-screens
 19-->[org.osmdroid:osmdroid-android:6.1.18] /Users/erikamartin/.gradle/caches/transforms-4/b2aad2adf7998b6177d509d3022128b8/transformed/osmdroid-android-6.1.18/AndroidManifest.xml:9:5-12:40
@@ -72,77 +72,77 @@
 41-->[androidx.core:core:1.9.0] /Users/erikamartin/.gradle/caches/transforms-4/c2be3eeff37a9ead1d2c3ad74ec6f1c4/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
 42
 43    <application
-43-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:13:5-48:19
+43-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:13:5-48:19
 44        android:allowBackup="true"
-44-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:14:9-35
+44-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:14:9-35
 45        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 45-->[androidx.core:core:1.9.0] /Users/erikamartin/.gradle/caches/transforms-4/c2be3eeff37a9ead1d2c3ad74ec6f1c4/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
 46        android:debuggable="true"
 47        android:extractNativeLibs="false"
 48        android:icon="@mipmap/ic_launcher"
-48-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:15:9-43
+48-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:15:9-43
 49        android:label="@string/app_name"
-49-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:16:9-41
+49-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:16:9-41
 50        android:roundIcon="@mipmap/ic_launcher_round"
-50-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:17:9-54
+50-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:17:9-54
 51        android:supportsRtl="true"
-51-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:18:9-35
+51-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:18:9-35
 52        android:testOnly="true"
 53        android:theme="@style/Theme.InfoCam"
-53-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:20:9-45
+53-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:20:9-45
 54        android:usesCleartextTraffic="true" >
-54-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:19:9-44
+54-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:19:9-44
 55
 56        <!-- Login es el Launcher -->
 57        <activity
-57-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:24:9-30:20
+57-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:24:9-30:20
 58            android:name="com.infocam.ui.LoginActivity"
-58-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:24:19-51
+58-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:24:19-51
 59            android:exported="true" >
-59-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:25:13-36
+59-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:25:13-36
 60            <intent-filter>
-60-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:26:13-29:29
+60-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:26:13-29:29
 61                <action android:name="android.intent.action.MAIN" />
-61-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:27:17-69
-61-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:27:25-66
+61-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:27:17-69
+61-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:27:25-66
 62
 63                <category android:name="android.intent.category.LAUNCHER" />
-63-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:28:17-77
-63-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:28:27-74
+63-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:28:17-77
+63-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:28:27-74
 64            </intent-filter>
 65        </activity>
 66        <activity
-66-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:32:9-34:61
+66-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:32:9-34:61
 67            android:name="com.infocam.ui.RegisterActivity"
-67-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:32:19-54
+67-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:32:19-54
 68            android:exported="false"
-68-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:33:13-37
+68-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:33:13-37
 69            android:parentActivityName="com.infocam.ui.LoginActivity" />
-69-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:34:13-59
+69-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:34:13-59
 70        <activity
-70-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:36:9-38:48
+70-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:36:9-38:48
 71            android:name="com.infocam.ui.MainActivity"
-71-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:36:19-50
+71-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:36:19-50
 72            android:exported="false"
-72-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:37:13-37
+72-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:37:13-37
 73            android:label="@string/app_name" />
-73-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:38:13-45
+73-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:38:13-45
 74        <activity
-74-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:40:9-42:39
+74-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:40:9-42:39
 75            android:name="com.infocam.ui.CrearIncidenciaActivity"
-75-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:40:19-61
+75-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:40:19-61
 76            android:exported="false"
-76-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:42:13-37
+76-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:42:13-37
 77            android:parentActivityName="com.infocam.ui.MainActivity" />
-77-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:41:13-58
+77-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:41:13-58
 78        <activity
-78-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:44:9-46:62
+78-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:44:9-46:62
 79            android:name="com.infocam.ui.FullScreenImageActivity"
-79-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:44:19-61
+79-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:44:19-61
 80            android:exported="false"
-80-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:45:13-37
+80-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:45:13-37
 81            android:theme="@style/Theme.InfoCam.FullScreen" />
-81-->/Users/erikamartin/Documents/InfoCam/app/src/main/AndroidManifest.xml:46:13-60
+81-->/Users/erikamartin/Documents/GitHub/app-android/app/src/main/AndroidManifest.xml:46:13-60
 82
 83        <provider
 83-->[androidx.emoji2:emoji2:1.2.0] /Users/erikamartin/.gradle/caches/transforms-4/de12fd4a90e9ceb6479c9a6f0cbc06bf/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20

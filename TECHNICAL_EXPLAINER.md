@@ -30,7 +30,7 @@ El servidor gestiona la persistencia en MySQL y la sincronización con fuentes e
 *   **`SessionManager`**: Gestiona **SharedPreferences**. Guarda el estado de la sesión, el token y los datos del usuario logueado.
 
 ### 📂 Capa de Red (`com.infocam.network`)
-*   **`ServicioApi`**: Corazón de la comunicación. Usa el patrón **Singleton**. Implementa multihilo mediante `ExecutorService` y la vuelta al hilo principal con `Handler`.
+*   **`ServicioApi`**: Corazón de la comunicación. Usa el patrón **Singleton**. Implementa la comunicación mediante **Retrofit**, gestionando peticiones asíncronas de forma profesional.
 *   **`ApiCallback<T>`**: Interfaz genérica que estandariza las respuestas de éxito y error de todas las peticiones.
 
 ### 📂 Pantallas y Componentes UI (`com.infocam.ui`)

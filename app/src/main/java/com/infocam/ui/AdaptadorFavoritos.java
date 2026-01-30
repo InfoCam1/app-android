@@ -13,81 +13,66 @@ import com.infocam.R;
 import com.infocam.model.Favorito;
 import java.util.List;
 
-/**
- * AdaptadorFavoritos: Esta clase es el "puente" entre nuestros datos (Lista de
- * Favoritos)
- * y la vista (RecyclerView).
- * 
- * Conceptos clave para DAM:
- * 1. Patrón ViewHolder: Evitamos llamadas costosas a findViewById cada vez que
- * se hace scroll.
- * 2. Inflación: Convertimos archivos XML en objetos View de Java.
- * 3. Enlace (Binding): Asignamos los datos del objeto a los elementos visuales
- * correspondientes.
- */
+// Esta clase es el "puente" entre nuestros datos (la lista de favoritos) y la vista (el RecyclerView). Hace que los datos puedan ser visualizados en la aplicación.
 public class AdaptadorFavoritos extends RecyclerView.Adapter<AdaptadorFavoritos.ViewHolderFavorito> {
-
     private List<Favorito> listaDeFavoritos;
-    private final OnClickEliminar oyenteBorrado;
+    private final OnClickEliminar listenerBorrado;
 
-    /**
-     * Interfaz para delegar la lógica de borrado al Fragmento (Desacoplamiento).
-     */
+    // Esta interfaz delega la lógica del borrado, ya que no buscamos que el adaptador decida CÓMO se borra de la BBDD, sino que avise de que DEBE ser borrado por el "FavoritosFragment".
     public interface OnClickEliminar {
         void ejecutar(Favorito favorito);
     }
 
-    public AdaptadorFavoritos(List<Favorito> lista, OnClickEliminar oyente) {
+    // Crearemos también un constructor que usaremos a la hora de cargar los favoritos.
+    public AdaptadorFavoritos(List<Favorito> lista, OnClickEliminar listener) {
         this.listaDeFavoritos = lista;
-        this.oyenteBorrado = oyente;
+        this.listenerBorrado = listener;
     }
 
-    /**
-     * Actualiza la colección de datos y notifica al RecyclerView para que se
-     * redibuje.
-     */
+    // Necesitamos un método que actualice los datos y avise, a través de "notifyDataSetChanged()", a la vista para que esta recargue la pantalla.
     public void actualizarDatos(List<Favorito> nuevaLista) {
         this.listaDeFavoritos = nuevaLista;
-        notifyDataSetChanged(); // Notificamos que los datos han cambiado
+        notifyDataSetChanged(); // Notificamos que los datos han cambiado.
     }
 
     @NonNull
     @Override
     public ViewHolderFavorito onCreateViewHolder(@NonNull ViewGroup padre, int tipoVista) {
-        // Inflamos el layout item_favorito para crear una nueva fila
-        View vistaFila = LayoutInflater.from(padre.getContext()).inflate(R.layout.item_favorito, padre, false);
+        // "Inflamos" el layout "item_favorito" para crear una nueva fila. Solo se llamará las veces necesarias para llenar la pantalla.
+        View vistaFila = LayoutInflater.from(padre.getContext()).inflate(R.layout.item_favorito, padre, false); // "R.layout.item_favorito" es el diseño de UNA sola fila.
         return new ViewHolderFavorito(vistaFila);
     }
 
+    // A continuación, tendremos que vincular los datos con su fila correspondiente. "onBindViewHolder" es un método al que se le llama constantemente (cada vez que hacemos scroll) y dice en qué fila va el nombre X y su foto.
     @Override
     public void onBindViewHolder(@NonNull ViewHolderFavorito holder, int posicion) {
-        // Aquí "atamos" o vinculamos los datos del objeto Favorito a la vista
+        // Aquí vinculamos los datos del objeto Favorito a la vista.
         Favorito favorito = listaDeFavoritos.get(posicion);
 
         holder.txtNombre.setText(favorito.getNombre());
-        holder.txtDireccion.setText("Cámara de tráfico"); // Texto informativo fijo
+        holder.txtDireccion.setText("Cámara de tráfico"); // Ponemos una pequeña descripción. En este caso siempre indicará que se trata de una cámara de tráfico. En un futuro, si se añade la funcionalidad de poner incidencias como favoritas, deberíamos camiar también este texto.
 
-        // Glide es la librería recomendada en Android para carga de imágenes en segundo
-        // plano
+        // Utilizamos la librería Glide para cargar las imágenes en segundo plano, sin que la aplicación sufra parones. Se encargará, no solo de cargarla en el ImageView, sino que también la redimensionará.
         Glide.with(holder.itemView.getContext())
                 .load(favorito.getUrlImagen())
-                .placeholder(R.drawable.ic_marker_camera)
+                .placeholder(R.drawable.placeholder_camera) // Ponemos una imagen temporal mientras se termina de cargar la real.
                 .into(holder.imgCamara);
 
-        // Configuramos el evento click del botón de papelera
-        holder.btnPapelera.setOnClickListener(v -> oyenteBorrado.ejecutar(favorito));
+        // También tendremos que configurar qué ocurre cuando el usuario pulsa el icono de la papelera, por lo que llamamos a nuestro propio método.
+        holder.btnPapelera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listenerBorrado.ejecutar(favorito);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return listaDeFavoritos.size(); // Tamaño de la lista
+        return listaDeFavoritos.size(); // Nos dice el tamaño de la lista.
     }
 
-    /**
-     * Clase Interna ViewHolderFavorito:
-     * Almacena las referencias a los componentes de la vista para no buscarlos
-     * repetidamente.
-     */
+    // Esta clase guarda las referencias de los botones y textos que hay colocados en el layout. Se utiliza para no tener que buscarlos cada vez que los necesitemos.
     public static class ViewHolderFavorito extends RecyclerView.ViewHolder {
         TextView txtNombre, txtDireccion;
         ImageView imgCamara;

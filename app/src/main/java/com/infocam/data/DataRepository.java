@@ -9,27 +9,16 @@ import com.infocam.model.Favorito;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * DataRepository: Implementamos el Patrón REPOSITORIO.
- * 
- * Este patrón actúa como un mediador entre la fuente de datos (SQLite)
- * y el resto de la aplicación. Su objetivo es abstraer el origen de los datos
- * para que a la interfaz le de igual de dónde vienen.
- * 
- * Nota para DAM: Aquí realizamos las operaciones CRUD (Create, Read, Update,
- * Delete).
- */
+/* Esta clase funcionará como "mediador" entre la base de datos de SQLite y el servidor. A través de operaciones CRUD
+ * (Create, Read, Update, Delete) sincronizará los datos con la BBDD. */
 public class DataRepository {
-
     private final DatabaseHelper gestorBD;
 
     public DataRepository(Context contexto) {
         gestorBD = new DatabaseHelper(contexto);
     }
 
-    /**
-     * Guarda un nuevo favorito en la base de datos local.
-     */
+    // Guardamos un nuevo favorito en la BBDD de SQLite.
     public long insertarFavorito(Favorito favorito) {
         SQLiteDatabase bd = gestorBD.getWritableDatabase();
         ContentValues valores = new ContentValues();
@@ -42,23 +31,23 @@ public class DataRepository {
         valores.put(DatabaseHelper.COL_ID_CAMARA, favorito.getIdCamara());
         valores.put(DatabaseHelper.COL_IMAGEN, favorito.getUrlImagen());
 
-        // El método insert evita inyección SQL gracias al uso de ContentValues
+        // Inyectamos los datos con el ContentValues.
         long idGenerado = bd.insert(DatabaseHelper.TABLA_FAVORITOS, null, valores);
         bd.close();
         return idGenerado;
     }
 
-    /**
-     * Recupera todos los favoritos de un usuario filtrados por su ID.
-     */
+    /* Recuperamos los favoritos del usuario, realizando un SELECT con su idUsuario. Esto se usará, por ejemplo, cada vez que cerremos sesión.
+    * No nos interesa que el siguiente usuario pueda ver los favoritos de la otra persona, por lo que cuando se genera un favorito en la BBDD local
+    * también guardaremos un backup en el servidor. Posteriormente será este backup el que recuperemos. */
     public List<Favorito> obtenerFavoritosPorUsuario(int idUsuario) {
         List<Favorito> listaResultados = new ArrayList<>();
         SQLiteDatabase bd = gestorBD.getReadableDatabase();
 
+        // Le añadiremos el condicional de la búsqueda: quiero que recojas los favoritos del usuario "x".
         String clausulaWhere = DatabaseHelper.COL_ID_USUARIO + " = ?";
         String[] argumentosWhere = { String.valueOf(idUsuario) };
 
-        // Usamos el método query que es más seguro y limpio que un rawQuery
         Cursor cursor = bd.query(
                 DatabaseHelper.TABLA_FAVORITOS,
                 null,
@@ -68,6 +57,7 @@ public class DataRepository {
                 null,
                 null);
 
+        // Leemos todos los datos para poder guardarlos en un objeto Favorito nuevo.
         if (cursor.moveToFirst()) {
             do {
                 Favorito f = new Favorito();
@@ -88,9 +78,7 @@ public class DataRepository {
         return listaResultados;
     }
 
-    /**
-     * Elimina un registro de favorito específico usando su ID de autoincremento.
-     */
+    // Eliminamos un registro de favorito específico usando su ID de autoincremento. Esto nos servirá cuando queramos borrar un favorito concreto, ya sea del mapa como de la lista.
     public void eliminarFavorito(int idFavoritoLocal) {
         SQLiteDatabase bd = gestorBD.getWritableDatabase();
         bd.delete(DatabaseHelper.TABLA_FAVORITOS,
@@ -99,10 +87,7 @@ public class DataRepository {
         bd.close();
     }
 
-    /**
-     * Borra todos los favoritos locales del usuario para forzar una sincronización
-     * limpia.
-     */
+    // También podremos borrar todos los favoritos locales del usuario. Así, podremos forzar una sincronización con el servidor tras volver a iniciar sesión.
     public void vaciarFavoritosDeUsuario(int idUsuario) {
         SQLiteDatabase bd = gestorBD.getWritableDatabase();
         bd.delete(DatabaseHelper.TABLA_FAVORITOS,
@@ -111,28 +96,16 @@ public class DataRepository {
         bd.close();
     }
 
-    /**
-     * Vacía toda la tabla de favoritos (borrado global).
-     */
-    public void vaciarTodosLosFavoritos() {
-        SQLiteDatabase bd = gestorBD.getWritableDatabase();
-        bd.delete(DatabaseHelper.TABLA_FAVORITOS, null, null);
-        bd.close();
-    }
-
-    /**
-     * Algoritmo de Sincronización:
-     * Comparamos los datos del API con la base de datos local para mantener
-     * la aplicación al día tras el login.
-     */
+    // Cuando hagamos login, lanzaremos una sincronización para actualizar la BBDD local y mantener la aplicación actualizada con los mismos datos que el servidor.
     public void sincronizarConServidor(int idUsuario, List<Camara> camarasFavoritasApi) {
-        if (camarasFavoritasApi == null)
-            return;
-
-        // Primero limpiamos la base de datos local para este usuario
+        // Primero limpiamos la base de datos local para este usuario.
         vaciarFavoritosDeUsuario(idUsuario);
 
-        // Luego insertamos la información fresca que viene del API
+        // En caso de no tener ninguna cámara en favoritos (servidor), no seguiremos con esta sincronización.
+        if (camarasFavoritasApi == null || camarasFavoritasApi.isEmpty())
+            return;
+
+        // Luego insertamos la información nueva que viene del API.
         for (Camara c : camarasFavoritasApi) {
             Favorito f = new Favorito();
             f.setIdUsuario(idUsuario);

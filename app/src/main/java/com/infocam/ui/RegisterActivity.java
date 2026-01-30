@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.infocam.R;
 import com.infocam.model.Usuario;
 import com.infocam.network.ApiCallback;
-import com.infocam.network.ServicioApi;
+import com.infocam.network.InfocamServiceClient;
 
 /**
  * RegisterActivity: Gestión de la creación de nuevos usuarios.
@@ -74,7 +74,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         btnRegister.setEnabled(false);
 
-        ServicioApi.obtenerInstancia().registrarUsuario(nuevoUsuario, new ApiCallback<Void>() {
+        InfocamServiceClient.obtenerInstancia().registrarUsuario(nuevoUsuario, new ApiCallback<Void>() {
             @Override
             public void onSuccess(Void result) {
                 Toast.makeText(RegisterActivity.this, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show();

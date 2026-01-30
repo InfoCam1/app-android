@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +15,8 @@ import com.infocam.data.SessionManager;
 import com.infocam.model.Camara;
 import com.infocam.model.Usuario;
 import com.infocam.network.ApiCallback;
-import com.infocam.network.ServicioApi;
+import com.infocam.network.InfocamServiceClient;
+
 import java.util.List;
 
 /**
@@ -78,8 +78,8 @@ public class LoginActivity extends AppCompatActivity {
 
         btnAcceder.setEnabled(false); // Feedback visual y prevención de doble click
 
-        // Petición al API mediante el Singleton de ServicioApi
-        ServicioApi.obtenerInstancia().iniciarSesion(u, p, new ApiCallback<Usuario>() {
+        // Petición al API mediante el Singleton de InfocamServiceClient
+        InfocamServiceClient.obtenerInstancia().iniciarSesion(u, p, new ApiCallback<Usuario>() {
             @Override
             public void onSuccess(Usuario user) {
                 // Guardamos la sesión persistente en SharedPreferences
@@ -98,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void descargarYEntrar(Usuario user) {
-        ServicioApi.obtenerInstancia().obtenerFavoritosUsuario(user.getToken(), user.getId(),
+        InfocamServiceClient.obtenerInstancia().obtenerFavoritosUsuario(user.getToken(), user.getId(),
                 new ApiCallback<List<Camara>>() {
                     @Override
                     public void onSuccess(List<Camara> resultado) {

@@ -1,8 +1,6 @@
 package com.infocam.model;
 
-/**
- * Modelo para guardar favoritos localmente en SQLite.
- */
+// Modelo para guardar favoritos. Lo utilizaremos principalmente en la base de datos local de SQLite. Se mostrarán con un marcador amarillo en el mapa.
 public class Favorito {
     private int idLocal;
     private int idUsuario;

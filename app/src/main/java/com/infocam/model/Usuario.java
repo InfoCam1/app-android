@@ -1,23 +1,34 @@
 package com.infocam.model;
 
-/**
- * Modelo que representa al Usuario autenticado.
- * Coincide con la respuesta del endpoint /login.
- */
+import com.google.gson.annotations.SerializedName;
+import java.util.List;
+import java.util.ArrayList;
+
+// Modelo que representa al Usuario. Coincide con la respuesta del endpoint.
+
 public class Usuario {
     private int id;
-    private boolean isAdmin; // "is_admin": false
+
+    @SerializedName(value = "is_admin", alternate = { "admin" })
+    private boolean isAdmin; // Desde la aplicación móvil, ningún usuario que se registre podrá ser nunca
+                             // "Admin", por lo que este campo siempre será false.
+
     private String username;
     private String password;
-    private String nombre;
-    private String apellido;
-    private String email;
-    private long telefono; // puede ser 0
-    private String[] incidencias; // array vacío en screenshot, asumo String[] o Object[] por ahora, o List
-    private String[] favoritos; // array vacío
-    private String token; // Token JWT
 
-    // Constructor vacío
+    @SerializedName(value = "nombre", alternate = { "firstName" })
+    private String nombre;
+
+    @SerializedName(value = "apellido", alternate = { "lastName" })
+    private String apellido;
+
+    private String email;
+    private long telefono;
+    private List<Incidencia> incidencias = new ArrayList<>(); // Comienza vacío.
+    private List<Camara> favoritos = new ArrayList<>(); // Comienza vacío.
+    private String token; // Token de inicio de sesión. Cuando te logueas por primera vez, se te da este
+                          // "pase" para poder identificarte sin tener que añadir la contraseña otra vez.
+
     public Usuario() {
     }
 
@@ -98,19 +109,19 @@ public class Usuario {
         this.telefono = telefono;
     }
 
-    public String[] getIncidencias() {
+    public List<Incidencia> getIncidencias() {
         return incidencias;
     }
 
-    public void setIncidencias(String[] incidencias) {
+    public void setIncidencias(List<Incidencia> incidencias) {
         this.incidencias = incidencias;
     }
 
-    public String[] getFavoritos() {
+    public List<Camara> getFavoritos() {
         return favoritos;
     }
 
-    public void setFavoritos(String[] favoritos) {
+    public void setFavoritos(List<Camara> favoritos) {
         this.favoritos = favoritos;
     }
 
