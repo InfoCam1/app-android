@@ -3113,6 +3113,7 @@ drawable osm_ic_follow_me
 drawable osm_ic_follow_me_on
 drawable osm_ic_ic_map_ortho
 drawable person
+drawable placeholder_camera
 drawable previous
 drawable round_navigation_white_48
 drawable sharp_add_black_36

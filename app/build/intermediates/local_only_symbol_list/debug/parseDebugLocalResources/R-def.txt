@@ -33,6 +33,7 @@ drawable ic_star_filled
 drawable ic_user_avatar
 drawable ic_zoom_in
 drawable ic_zoom_out
+drawable placeholder_camera
 id bottom_navigation
 id btnBack
 id btnCerrarFiltros

@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 // Esta clase actúa como el "configurador" de Retrofit. Es la que se encarga de crear y configurar el propio objeto Retrofit.
 public class RetrofitClient {
     // En este apartado definimos cuál es la dirección IP del servidor. Es importante que, una vez definida, el teléfono móvil y el ordenador que actúa como servidor estén en la misma red.
-    private static final String BASE_URL = "http://10.10.16.85:8080/api/";
+    private static final String BASE_URL = "http://db.toadstudios.net:8080/api/";
     private static Retrofit retrofit = null;
 
     // El método "getClient()" construte el cliente de red. En caso de que esté creado devuelve el que existe, si no lo fabrica desde cero.

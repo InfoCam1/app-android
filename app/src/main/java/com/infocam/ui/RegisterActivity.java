@@ -64,12 +64,12 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         Usuario nuevoUsuario = new Usuario();
-        nuevoUsuario.setUsername(username);
+        nuevoUsuario.setNombreUsuario(username);
         nuevoUsuario.setNombre(nombre);
         nuevoUsuario.setApellido(apellido);
         nuevoUsuario.setTelefono(telefono);
         nuevoUsuario.setEmail(email);
-        nuevoUsuario.setPassword(password);
+        nuevoUsuario.setContrasena(password);
         nuevoUsuario.setAdmin(false);
 
         btnRegister.setEnabled(false);

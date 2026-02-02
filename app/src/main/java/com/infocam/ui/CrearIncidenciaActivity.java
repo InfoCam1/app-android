@@ -22,18 +22,10 @@ import com.infocam.network.InfocamServiceClient;
 import java.util.Calendar;
 import java.util.List;
 
-/* Esta clase es la encargada del formulario de creación de incidencias. Recoge todos los datos de una incidencia en la carretera y los manda al servidor a través de la API.
- * 
- * Conceptos clave para DAM:
- * 1. DatePickerDialog / TimePickerDialog: Componentes estándar para entrada de
- * fechas/horas.
- * 2. Spinner: Equivale al <select> de HTML, permite elegir entre una lista de
- * opciones.
- * 3. Extras: Datos pasados de una Activity a otra mediante el Intent
- * (coordenadas en este caso).
- */
+/* Esta clase es la encargada del formulario de creación de incidencias. Recoge todos los datos de una incidencia en la carretera y los manda al servidor a través de la API.*/
 public class CrearIncidenciaActivity extends AppCompatActivity {
-    // Tendremos dos variables que recogerán la latitud y longitud que nos pasa el mapa (cuando mantenemos pulsado creamos este "marcador" con las coordenadas).
+    // Tendremos dos variables que recogerán la latitud y longitud que nos pasa el
+    // mapa (cuando mantenemos pulsado creamos este "marcador" con las coordenadas).
     public static final String EXTRA_LAT = "latitud";
     public static final String EXTRA_LNG = "longitud";
 
@@ -62,7 +54,7 @@ public class CrearIncidenciaActivity extends AppCompatActivity {
         campoFin = findViewById(R.id.etFechaFin);
         btnConfirmar = findViewById(R.id.btnGuardarIncidencia);
 
-        consultarCatalogosAPI(); // Con esta llamada "llenamos" el selector de tipo (si es un accidente, obres...).
+        consultarCatalogosAPI(); // Con esta llamada "llenamos" el selector de tipo (si es un accidente, obras...).
 
         // Al hacer click en los campos de fecha, abrimos un calendario para facilitar la selección.
         campoInicio.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +63,7 @@ public class CrearIncidenciaActivity extends AppCompatActivity {
                 mostrarSelectorFechaHora(campoInicio);
             }
         });
+
         campoFin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,97 +71,115 @@ public class CrearIncidenciaActivity extends AppCompatActivity {
             }
         });
 
-        campoInicio.setOnClickListener(new View.OnClickListener() {
+        // Vinculamos el botón de guardar con el método que procesa el envío de datos.
+        btnConfirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mostrarSelectorFechaHora(campoInicio);
+                procesarEnvioDatos();
             }
         });
     }
 
     // Este es el método (al que llamamos arriba) que carga los datos dinámicos de los tipos de incidencia desde el servidor.
     private void consultarCatalogosAPI() {
-        InfocamServiceClient.obtenerInstancia().obtenerTiposIncidencia(sesion.getToken(), new ApiCallback<List<String>>() {
-            @Override
-            public void onSuccess(List<String> result) {
-                // Utilizamos el adapter como "puente" entre la lista y el spinner (cogeremos los datos del servidor y los meteremos en la lista).
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(CrearIncidenciaActivity.this, R.layout.spinner_item,
-                        result);
-                adapter.setDropDownViewResource(R.layout.spinner_item);
-                selectorTipo.setAdapter(adapter);
-            }
+        InfocamServiceClient.obtenerInstancia().obtenerTiposIncidencia(sesion.getToken(),
+                new ApiCallback<List<String>>() {
+                    @Override
+                    public void onSuccess(List<String> result) {
+                        // Utilizamos el adapter como "puente" entre la lista y el spinner (cogeremos los datos del servidor y los meteremos en la lista).
+                        ArrayAdapter<String> adapter = new ArrayAdapter<>(CrearIncidenciaActivity.this,
+                                R.layout.spinner_item,
+                                result);
+                        adapter.setDropDownViewResource(R.layout.spinner_item);
+                        selectorTipo.setAdapter(adapter);
+                    }
 
-            // En caso de error, lo tendremos que controlar para que el usuario tenga otra opción y el desplegable no aparezca vacío.
-            @Override
-            public void onError(String error) {
-                // Si el servidor no responde o existe algún problema con la red, usamos una lista con opciones por defecto.
-                String[] respaldo = { "Accidente", "Obras", "Retención", "Clima" };
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(CrearIncidenciaActivity.this, R.layout.spinner_item, respaldo); // Aquí, en vez de los resultados de la llamada a la API le metemos la lista de tipos.
-                selectorTipo.setAdapter(adapter);
-            }
-        });
+                    // En caso de error, lo tendremos que controlar para que el usuario tenga otra opción y el desplegable no aparezca vacío.
+                    @Override
+                    public void onError(String error) {
+                        // Si el servidor no responde o existe algún problema con la red, usamos una lista con opciones por defecto.
+                        String[] respaldo = { "Accidente", "Obras", "Retención", "Clima" };
+                        ArrayAdapter<String> adapter = new ArrayAdapter<>(CrearIncidenciaActivity.this,
+                                R.layout.spinner_item, respaldo); // Aquí, en vez de los resultados de la llamada a la API le metemos la lista de tipos.
+                        selectorTipo.setAdapter(adapter);
+                    }
+                });
     }
 
     // El método que muestra la fecha y la hora también se encargará de formatear el resultado para que coincida con el que requiere la API.
     private void mostrarSelectorFechaHora(final EditText target) {
+        // Obtenemos y metemos en una variable la fecha y hora actual. Así, podremos iniciar los selectores en el momento concreto en el que se encuentra el usuario (cuando vaya a crear una incidencia).
         final Calendar calendario = Calendar.getInstance();
         int a = calendario.get(Calendar.YEAR);
         int m = calendario.get(Calendar.MONTH);
         int d = calendario.get(Calendar.DAY_OF_MONTH);
 
-        // Paso 1: Seleccionamos el día
+        // Comenzamos seleccionando la Fecha.
         DatePickerDialog dFecha = new DatePickerDialog(this, R.style.Theme_InfoCam_Dialog, (view, anio, mes, dia) -> {
+            // Al seleccionar la fecha, la formateamos de manera temporal. En Calendar, los meses empiezan en 0 (enero sería 0).
             String f = String.format("%04d-%02d-%02d", anio, (mes + 1), dia);
 
+            // Buscamos la hora actual para el siguiente selector.
             int h = calendario.get(Calendar.HOUR_OF_DAY);
             int min = calendario.get(Calendar.MINUTE);
 
-            // Paso 2: Seleccionamos la hora
+            // A continuación, crearemos el de la hora.
             TimePickerDialog dHora = new TimePickerDialog(this, R.style.Theme_InfoCam_Dialog, (v, hora, minuto) -> {
-                // Formato ISO 8601 esperado por el Backend
+                // Construímos el formato que espera la API, en ISO 8601.
                 String fFinal = String.format("%sT%02d:%02d:00+01:00", f, hora, minuto);
-                target.setText(fFinal);
-            }, h, min, true);
-            dHora.show();
+                target.setText(fFinal); // Asignamos el resultado de ambos al campo de texto.
+            }, h, min, true); // Señalando "true", le pedimos al reloj que utilice el formato de 24 horas.
+            dHora.show(); // Mostramos el reloj.
         }, a, m, d);
-        dFecha.show();
+        dFecha.show(); // Mostramos el calendario. Como vemos, está fuera del código, por lo que se lanzará antes del proceso que acabamos de comentar.
     }
 
-    /**
-     * Valida, construye el objeto Incidencia y lo envía al API.
-     */
+   // En este método procesaremos que los datos que enviamos a la API sean correctos. Para ello, recolectaremos todo lo introducido por el usuario, verificaremos qué es y no es obligatorio y gestionaremos la llamada a la API.
     private void procesarEnvioDatos() {
-        String n = campoNombre.getText().toString().trim();
-        String c = campoCausa.getText().toString().trim();
-        String t = selectorTipo.getSelectedItem() != null ? selectorTipo.getSelectedItem().toString() : "";
-        String fi = campoInicio.getText().toString().trim();
+        // Comenzamos extrayendo los datos de la interfaz. Cogeremos el texto, lo normalizaremos a String y borraremos los posibles espacios en blanco que haya dejado el usuario.
+        String n = campoNombre.getText().toString().trim(); // Nombre.
+        String c = campoCausa.getText().toString().trim(); // Causa.
+        String t; // Tipo.
+        String fi = campoInicio.getText().toString().trim(); // Fecha de Inicio.
 
+        // En caso de que haya algo seleccionado, obtendremos el nombre de ese elemento en formato de texto. Si no hay nada, devolveremos una cadena vacía.
+        if (selectorTipo.getSelectedItem() != null) {
+            t = selectorTipo.getSelectedItem().toString();
+        } else {
+            t = "";
+        }
+
+        // Los campos de nombre, causa y fechad de inicio serán obligatorios.
         if (TextUtils.isEmpty(n) || TextUtils.isEmpty(c) || TextUtils.isEmpty(fi)) {
-            Toast.makeText(this, "Completa los campos obligatorios", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Completa los campos obligatorios", Toast.LENGTH_SHORT).show(); // En caso de que falte rellenar alguno de estos, avisaremos al usuario con un Toast.
             return;
         }
 
+        // A continuación, con todos los datos introducidos por el usuario, crearemos un nuevo objeto incidencia.
         Incidencia inc = new Incidencia();
-        inc.setIdUsuario(sesion.obtenerUsuario().getId());
+        inc.setIdUsuario(sesion.obtenerUsuario().getId()); // Para saber qué usuario ha creado la incidencia, obtendremos su identificador.
         inc.setNombre(n);
         inc.setTipoIncidencia(t);
         inc.setCausa(c);
         inc.setFechaInicio(fi);
-        inc.setFechaFin(campoFin.getText().toString().trim());
-        inc.setLatitud(lat);
-        inc.setLongitud(lng);
+        inc.setFechaFin(campoFin.getText().toString().trim()); // Ya que el campo de fecha din no es obligatorio, solo lo introduciremos si el usuario ha añadido algo en el campo del formulario.
+        inc.setLatitud(lat); // Latitud.
+        inc.setLongitud(lng); // Longitud.
 
-        btnConfirmar.setEnabled(false);
+        btnConfirmar.setEnabled(false); // Como medida de seguridad, deshabilitamos la posibilidad de enviar un segundo formulario si el usuario le da por error doble click al botón.
 
+        // Ahora, llamaremos a la API.
         InfocamServiceClient.obtenerInstancia().crearIncidencia(sesion.getToken(), inc, new ApiCallback<Void>() {
             @Override
             public void onSuccess(Void result) {
-                Toast.makeText(CrearIncidenciaActivity.this, "Reporte enviado con éxito", Toast.LENGTH_SHORT).show();
-                finish(); // Volvemos al mapa
+                // Si la API devuelve un código 2xx, notificaremos al usuario de que se ha enviado correctamente al servidor.
+                Toast.makeText(CrearIncidenciaActivity.this, "Incidencia reportada correctamente", Toast.LENGTH_SHORT).show();
+                finish(); // Volvemos al mapa.
             }
 
             @Override
             public void onError(String error) {
+                // En caso de error, volvemos a activar el botón para permitir reintentar el envío del formulario.
                 btnConfirmar.setEnabled(true);
                 Toast.makeText(CrearIncidenciaActivity.this, "Error: " + error, Toast.LENGTH_SHORT).show();
             }

@@ -3112,6 +3112,7 @@ int drawable osm_ic_follow_me 0x7f0700fc
 int drawable osm_ic_follow_me_on 0x7f0700fd
 int drawable osm_ic_ic_map_ortho 0x7f0700fe
 int drawable person 0x7f0700ff
+int drawable placeholder_camera 0x7f07010a
 int drawable previous 0x7f070100
 int drawable round_navigation_white_48 0x7f070101
 int drawable sharp_add_black_36 0x7f070102
