@@ -36,11 +36,11 @@ dependencies {
     // OpenStreetMap (osmdroid)
     implementation 'org.osmdroid:osmdroid-android:6.1.18'
     
-    // Glide for image loading
+    // Glide para cargar imágenes.
     implementation 'com.github.bumptech.glide:glide:4.16.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.16.0'
 
-    // PhotoView for Zoom and Pan
+    // PhotoView para hacer zoom en las imagenes
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
 
     // Testing
@@ -48,7 +48,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-    // Retrofit & OkHttp
+    // Retrofit y OkHttp
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.12.0'

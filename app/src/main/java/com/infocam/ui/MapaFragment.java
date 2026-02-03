@@ -50,7 +50,9 @@ import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * MapaFragment: Vista principal con mapa interactivo de Madrid.
@@ -68,6 +70,8 @@ public class MapaFragment extends Fragment {
     private SessionManager preferenciaSesion;
     private DataRepository databaseLocal;
     private List<Camara> listaFavoritosApi = new ArrayList<>();
+    private List<Camara> listaCamarasApi = new ArrayList<>();
+    private List<Incidencia> listaIncidenciasApi = new ArrayList<>();
 
     private View panelFiltros;
     private CheckBox checkCamaras, checkIncidenciasG, checkIncidenciasU, checkSoloFavoritos;
@@ -145,7 +149,7 @@ public class MapaFragment extends Fragment {
             verIncidenciasU = checkIncidenciasU.isChecked();
             verSoloFavs = checkSoloFavoritos.isChecked();
             panelFiltros.setVisibility(View.GONE);
-            repintarElementosEnMapa();
+            refrescarMarcadores();
         });
     }
 
@@ -230,61 +234,129 @@ public class MapaFragment extends Fragment {
         if (capaPosicionUsuario != null)
             visorMapa.getOverlays().add(capaPosicionUsuario);
 
+        // Cargamos favoritos locales primero para que se vean mientras descarga del API
+        Usuario u = preferenciaSesion.obtenerUsuario();
+        if (u != null) {
+            List<Favorito> localFavs = databaseLocal.obtenerFavoritosPorUsuario(u.getId());
+            List<Camara> camFavs = new ArrayList<>();
+            for (Favorito f : localFavs) {
+                Camara c = new Camara();
+                c.setId(f.getIdCamara());
+                c.setNombre(f.getNombre());
+                c.setLatitud(f.getLatitud());
+                c.setLongitud(f.getLongitud());
+                c.setImagen(f.getUrlImagen());
+                camFavs.add(c);
+            }
+            listaFavoritosApi = camFavs;
+        }
+
+        refrescarMarcadores();
         sincronizarYDescargar();
+    }
+
+    private void refrescarMarcadores() {
+        // Guardamos los overlays que no queremos borrar (el de pulsación larga y
+        // posición usuario)
+        List<org.osmdroid.views.overlay.Overlay> overlaysFijos = new ArrayList<>();
+        for (org.osmdroid.views.overlay.Overlay o : visorMapa.getOverlays()) {
+            if (o instanceof MapEventsOverlay || o instanceof MyLocationNewOverlay) {
+                overlaysFijos.add(o);
+            }
+        }
+
+        visorMapa.getOverlays().clear();
+        visorMapa.getOverlays().addAll(overlaysFijos);
+
+        // Usamos un Set para búsqueda rápida de IDs de favoritos
+        java.util.Set<Integer> setIdsFavs = new java.util.HashSet<>();
+        for (Camara f : listaFavoritosApi) {
+            setIdsFavs.add(f.getId());
+        }
+
+        // Caso 1: Solo queremos ver favoritos
+        if (verSoloFavs) {
+            for (Camara f : listaFavoritosApi) {
+                if (verCamaras) {
+                    dibujarMarcadorCamara(f, true);
+                }
+            }
+        }
+        // Caso 2: Ver todo según los filtros
+        else {
+            if (verCamaras) {
+                for (Camara c : listaCamarasApi) {
+                    boolean esFavorita = setIdsFavs.contains(c.getId());
+                    dibujarMarcadorCamara(c, esFavorita);
+                }
+            }
+
+            // Pintamos incidencias
+            for (Incidencia i : listaIncidenciasApi) {
+                if (i.isOficial() && !verIncidenciasG)
+                    continue;
+                if (!i.isOficial() && !verIncidenciasU)
+                    continue;
+
+                dibujarMarcadorIncidencia(i);
+            }
+        }
+
+        visorMapa.invalidate();
+    }
+
+    private void dibujarMarcadorIncidencia(Incidencia i) {
+        Marker m = new Marker(visorMapa);
+        m.setPosition(new GeoPoint(i.getLatitud(), i.getLongitud()));
+        m.setTitle(i.getNombre());
+
+        int resIcono = i.isOficial() ? R.drawable.ic_marker_incident : R.drawable.ic_marker_incident_user;
+        m.setIcon(ContextCompat.getDrawable(getContext(), resIcono));
+
+        m.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+        m.setInfoWindow(new VentanaDetalleIncidencia(visorMapa, i));
+        visorMapa.getOverlays().add(m);
     }
 
     private void sincronizarYDescargar() {
         Usuario u = preferenciaSesion.obtenerUsuario();
-        if (u == null) {
-            traerCamarasServidor();
-            traerIncidenciasServidor();
-            return;
+
+        // Lanzamos las peticiones en paralelo para no bloquearnos
+        traerCamarasServidor();
+        traerIncidenciasServidor();
+
+        if (u != null) {
+            InfocamServiceClient.obtenerInstancia().obtenerFavoritosUsuario(preferenciaSesion.getToken(), u.getId(),
+                    new ApiCallback<List<Camara>>() {
+                        @Override
+                        public void onSuccess(List<Camara> result) {
+                            if (getContext() == null)
+                                return;
+                            listaFavoritosApi = result;
+                            databaseLocal.sincronizarConServidor(u.getId(), result);
+                            refrescarMarcadores();
+                        }
+
+                        @Override
+                        public void onError(String error) {
+                            // Si falla, al menos tenemos los locales cargados previamente
+                            if (getContext() == null)
+                                return;
+                            refrescarMarcadores();
+                        }
+                    });
         }
-
-        // Primero traemos los favoritos para saber qué icono poner a cada cámara
-        InfocamServiceClient.obtenerInstancia().obtenerFavoritosUsuario(preferenciaSesion.getToken(), u.getId(),
-                new ApiCallback<List<Camara>>() {
-                    @Override
-                    public void onSuccess(List<Camara> result) {
-                        listaFavoritosApi = result;
-                        databaseLocal.sincronizarConServidor(u.getId(), result);
-                        traerCamarasServidor();
-                        traerIncidenciasServidor();
-                    }
-
-                    @Override
-                    public void onError(String error) {
-                        traerCamarasServidor();
-                        traerIncidenciasServidor();
-                    }
-                });
     }
 
     private void traerCamarasServidor() {
-        if (!verCamaras) {
-            visorMapa.invalidate();
-            return;
-        }
-
         InfocamServiceClient.obtenerInstancia().obtenerCamarasActivas(preferenciaSesion.getToken(),
                 new ApiCallback<List<Camara>>() {
                     @Override
                     public void onSuccess(List<Camara> result) {
-                        for (Camara c : result) {
-                            boolean esFavorita = false;
-                            for (Camara f : listaFavoritosApi) {
-                                if (f.getId() == c.getId()) {
-                                    esFavorita = true;
-                                    break;
-                                }
-                            }
-
-                            if (verSoloFavs && !esFavorita)
-                                continue;
-
-                            dibujarMarcadorCamara(c, esFavorita);
-                        }
-                        visorMapa.invalidate();
+                        if (getContext() == null)
+                            return;
+                        listaCamarasApi = result;
+                        refrescarMarcadores();
                     }
 
                     @Override
@@ -304,8 +376,6 @@ public class MapaFragment extends Fragment {
     }
 
     private void traerIncidenciasServidor() {
-        if (verSoloFavs)
-            return;
         Usuario u = preferenciaSesion.obtenerUsuario();
         Integer idU = (u != null) ? u.getId() : null;
 
@@ -313,32 +383,10 @@ public class MapaFragment extends Fragment {
                 new ApiCallback<List<Incidencia>>() {
                     @Override
                     public void onSuccess(List<Incidencia> result) {
-                        for (Incidencia i : result) {
-                            // Si el filtro de cámaras está en "Solo Favoritos", ocultamos todas las
-                            // incidencias
-                            if (verSoloFavs)
-                                continue;
-
-                            // Filtros de tipo de incidencia
-                            if (i.isOficial() && !verIncidenciasG)
-                                continue;
-                            if (!i.isOficial() && !verIncidenciasU)
-                                continue;
-
-                            Marker m = new Marker(visorMapa);
-                            m.setPosition(new GeoPoint(i.getLatitud(), i.getLongitud()));
-                            m.setTitle(i.getNombre());
-
-                            // Lógica de iconos original
-                            int resIcono = i.isOficial() ? R.drawable.ic_marker_incident
-                                    : R.drawable.ic_marker_incident_user;
-                            m.setIcon(ContextCompat.getDrawable(getContext(), resIcono));
-
-                            m.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-                            m.setInfoWindow(new VentanaDetalleIncidencia(visorMapa, i));
-                            visorMapa.getOverlays().add(m);
-                        }
-                        visorMapa.invalidate();
+                        if (getContext() == null)
+                            return;
+                        listaIncidenciasApi = result;
+                        refrescarMarcadores();
                     }
 
                     @Override
@@ -402,7 +450,17 @@ public class MapaFragment extends Fragment {
             ImageButton btn = v.findViewById(R.id.bubble_favorite);
 
             btn.setImageResource(esFav ? R.drawable.ic_star_filled : R.drawable.ic_star_border);
-            Glide.with(getContext()).load(cam.getImagen()).placeholder(R.drawable.ic_marker_camera).into(img);
+
+            // Añadimos cache-buster para forzar actualización de la imagen en tiempo real
+            String cacheBusterUrl = cam.getImagen() + (cam.getImagen().contains("?") ? "&" : "?") + "t="
+                    + System.currentTimeMillis();
+
+            Glide.with(getContext())
+                    .load(cacheBusterUrl)
+                    .diskCacheStrategy(com.bumptech.glide.load.engine.DiskCacheStrategy.NONE)
+                    .skipMemoryCache(true)
+                    .placeholder(R.drawable.ic_marker_camera)
+                    .into(img);
 
             img.setOnClickListener(c -> {
                 Intent i = new Intent(getContext(), FullScreenImageActivity.class);
@@ -418,7 +476,8 @@ public class MapaFragment extends Fragment {
             if (u == null)
                 return;
 
-            InfocamServiceClient.obtenerInstancia().conmutarFavorito(preferenciaSesion.getToken(), cam.getId(), u.getId(),
+            InfocamServiceClient.obtenerInstancia().conmutarFavorito(preferenciaSesion.getToken(), cam.getId(),
+                    u.getId(),
                     new ApiCallback<Void>() {
                         @Override
                         public void onSuccess(Void result) {
@@ -426,13 +485,21 @@ public class MapaFragment extends Fragment {
                             btn.setImageResource(esFav ? R.drawable.ic_star_filled : R.drawable.ic_star_border);
                             m.setIcon(ContextCompat.getDrawable(getContext(),
                                     esFav ? R.drawable.ic_marker_favorite : R.drawable.ic_marker_camera));
-                            visorMapa.invalidate();
 
+                            // Actualizamos la lista de favoritos local para que el filtro responda
+                            // inmediatamente
                             if (esFav) {
+                                listaFavoritosApi.add(cam);
                                 Favorito fav = new Favorito(u.getId(), cam.getId(), cam.getNombre(),
                                         "Cámara de tráfico", cam.getLatitud(), cam.getLongitud(), cam.getImagen());
                                 databaseLocal.insertarFavorito(fav);
                             } else {
+                                for (int idx = 0; idx < listaFavoritosApi.size(); idx++) {
+                                    if (listaFavoritosApi.get(idx).getId() == cam.getId()) {
+                                        listaFavoritosApi.remove(idx);
+                                        break;
+                                    }
+                                }
                                 List<Favorito> actuales = databaseLocal.obtenerFavoritosPorUsuario(u.getId());
                                 for (Favorito f : actuales) {
                                     if (f.getIdCamara() == cam.getId()) {
@@ -440,6 +507,11 @@ public class MapaFragment extends Fragment {
                                         break;
                                     }
                                 }
+                            }
+                            visorMapa.invalidate();
+                            // Si el filtro de "Solo favoritos" está activo, refrescamos el mapa
+                            if (verSoloFavs) {
+                                refrescarMarcadores();
                             }
                         }
 

@@ -16,21 +16,27 @@
     <string name="causa_incidencia">Causa</string>
     <string name="cerrar">Cerrar</string>
     <string name="cerrar_sesion">Cerrar Sesión</string>
+    <string name="correo_electr_nico">Correo Electrónico</string>
     <string name="crear_incidencia_title">Nueva Incidencia</string>
     <string name="eliminar">Eliminar</string>
     <string name="favoritos_title">Mis Favoritos</string>
     <string name="fecha_fin">Fecha Fin (YYYY-MM-DD)</string>
     <string name="fecha_inicio">Fecha Inicio (YYYY-MM-DD)</string>
     <string name="guardar">Guardar</string>
+    <string name="guardar_cambios">Guardar Cambios</string>
     <string name="login_button">Iniciar Sesión</string>
     <string name="login_title">Login</string>
     <string name="map_title">Mapa de Incidencias</string>
     <string name="nav_fav">Favoritos</string>
     <string name="nav_map">Mapa</string>
     <string name="nav_profile">Perfil</string>
+    <string name="no_tienes_cuenta_reg_strate_aqu">¿No tienes cuenta? Regístrate aquí</string>
     <string name="nombre_incidencia">Nombre de la incidencia</string>
+    <string name="nueva_contrase_a_opcional">Nueva Contraseña (Opcional)</string>
     <string name="password">Contraseña</string>
+    <string name="passwordPlaceholder">••••••••</string>
     <string name="perfil_title">Mi Perfil</string>
+    <string name="tel_fono">Teléfono</string>
     <string name="tipo_incidencia">Tipo de Incidencia</string>
     <string name="username">Usuario</string>
     <style name="RoundedImageView" parent="">

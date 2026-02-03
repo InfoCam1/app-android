@@ -16,10 +16,6 @@
         "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/drawable/ic_person.xml"
     },
     {
-        "merged": "com.infocam.app-debug-33:/drawable_placeholder_camera.xml.flat",
-        "source": "com.infocam.app-main-35:/drawable/placeholder_camera.xml"
-    },
-    {
         "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/menu_menu_bottom_nav.xml.flat",
         "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/menu/menu_bottom_nav.xml"
     },
@@ -80,6 +76,10 @@
         "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
+        "merged": "com.infocam.app-debug-33:/layout_fragment_perfil.xml.flat",
+        "source": "com.infocam.app-main-35:/layout/fragment_perfil.xml"
+    },
+    {
         "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/layout_fragment_map.xml.flat",
         "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/layout/fragment_map.xml"
     },
@@ -112,8 +112,16 @@
         "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/color/nav_item_state_list.xml"
     },
     {
+        "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_placeholder_camera.xml.flat",
+        "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/drawable/placeholder_camera.xml"
+    },
+    {
         "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/mipmap-hdpi_ic_launcher.webp.flat",
         "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.infocam.app-debug-33:/layout_activity_register.xml.flat",
+        "source": "com.infocam.app-main-35:/layout/activity_register.xml"
     },
     {
         "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_ic_marker_incident_user.xml.flat",
@@ -126,6 +134,10 @@
     {
         "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/layout_info_window_camera.xml.flat",
         "source": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-main-35:/layout/info_window_camera.xml"
+    },
+    {
+        "merged": "com.infocam.app-debug-33:/layout_activity_login.xml.flat",
+        "source": "com.infocam.app-main-35:/layout/activity_login.xml"
     },
     {
         "merged": "/Users/erikamartin/.gradle/daemon/8.7/com.infocam.app-debug-33:/drawable_ic_marker_camera.xml.flat",

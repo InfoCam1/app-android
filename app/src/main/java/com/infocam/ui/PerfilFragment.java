@@ -58,7 +58,7 @@ public class PerfilFragment extends Fragment {
         btnLogout = vistaRaiz.findViewById(R.id.btnLogout);
 
         if (user != null) {
-            txtNombreUsuario.setText(user.getUsername());
+            txtNombreUsuario.setText(user.getNombreUsuario());
             etNombre.setText(user.getNombre());
             etEmail.setText(user.getEmail());
             etTelefono.setText(String.valueOf(user.getTelefono()));

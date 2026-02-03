@@ -3947,6 +3947,7 @@ int string character_counter_overflowed_content_description 0x7f100038
 int string character_counter_pattern 0x7f100039
 int string clear_text_end_icon_content_description 0x7f10003a
 int string compass 0x7f10003b
+int string correo_electr_nico 0x7f1000e6
 int string crear_incidencia_title 0x7f10003c
 int string cyclemap 0x7f10003d
 int string eliminar 0x7f10003e
@@ -3972,6 +3973,7 @@ int string format_distance_only_mile 0x7f100051
 int string format_distance_only_nautical_mile 0x7f100052
 int string format_distance_value_unit 0x7f100053
 int string guardar 0x7f100054
+int string guardar_cambios 0x7f1000e7
 int string hide_bottom_view_on_scroll_behavior 0x7f100055
 int string hills 0x7f100056
 int string icon_content_description 0x7f100057
@@ -4088,9 +4090,12 @@ int string my_location 0x7f1000c5
 int string nav_fav 0x7f1000c6
 int string nav_map 0x7f1000c7
 int string nav_profile 0x7f1000c8
+int string no_tienes_cuenta_reg_strate_aqu 0x7f1000eb
 int string nombre_incidencia 0x7f1000c9
+int string nueva_contrase_a_opcional 0x7f1000e9
 int string offline 0x7f1000ca
 int string password 0x7f1000cb
+int string passwordPlaceholder 0x7f1000ec
 int string password_toggle_content_description 0x7f1000cc
 int string path_password_eye 0x7f1000cd
 int string path_password_eye_mask_strike_through 0x7f1000ce
@@ -4113,6 +4118,7 @@ int string side_sheet_behavior 0x7f1000de
 int string snapshot 0x7f1000df
 int string states 0x7f1000e0
 int string status_bar_notification_info_overflow 0x7f1000e1
+int string tel_fono 0x7f1000ea
 int string tipo_incidencia 0x7f1000e2
 int string topo 0x7f1000e3
 int string unknown 0x7f1000e4
