@@ -15,8 +15,6 @@
     <string name="perfil_title">Mi Perfil</string>
     <string name="cerrar_sesion">Cerrar Sesión</string>
     <string name="eliminar">Eliminar</string>
-    
-    <!-- Navigation -->
     <string name="nav_map">Mapa</string>
     <string name="nav_fav">Favoritos</string>
     <string name="nav_profile">Perfil</string>

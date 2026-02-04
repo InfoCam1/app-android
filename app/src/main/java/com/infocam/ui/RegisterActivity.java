@@ -14,11 +14,8 @@ import com.infocam.model.Usuario;
 import com.infocam.network.ApiCallback;
 import com.infocam.network.InfocamServiceClient;
 
-/**
- * RegisterActivity: Gestión de la creación de nuevos usuarios.
- */
+// Esta clase gestiona el registro de nuevos usuarios. Recopila los datos del formulario y los envía a la API REST.
 public class RegisterActivity extends AppCompatActivity {
-
     private EditText etUser, etNombre, etApellido, etPhone, etEmail, etPass;
     private Button btnRegister;
     private ImageButton btnBack;
@@ -37,10 +34,24 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister = findViewById(R.id.btnRegister);
         btnBack = findViewById(R.id.btnBack);
 
-        btnBack.setOnClickListener(v -> finish());
-        btnRegister.setOnClickListener(v -> procesarRegistro());
+        // Volver atrás con el botón de flecha.
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        // Evento de clic para procesar el registro.
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                procesarRegistro();
+            }
+        });
     }
 
+    // Procesa el registro del usuario.
     private void procesarRegistro() {
         String username = etUser.getText().toString().trim();
         String nombre = etNombre.getText().toString().trim();
@@ -49,6 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
         String email = etEmail.getText().toString().trim();
         String password = etPass.getText().toString().trim();
 
+        // Validación de campos.
         if (TextUtils.isEmpty(username) || TextUtils.isEmpty(nombre) || TextUtils.isEmpty(apellido) ||
                 TextUtils.isEmpty(telefonoStr) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Por favor, rellena todos los campos", Toast.LENGTH_SHORT).show();
@@ -57,7 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         long telefono;
         try {
-            telefono = Long.parseLong(telefonoStr);
+            telefono = Long.parseLong(telefonoStr); // Conversión de String a Long.
         } catch (NumberFormatException e) {
             Toast.makeText(this, "Número de teléfono no válido", Toast.LENGTH_SHORT).show();
             return;
@@ -72,8 +84,9 @@ public class RegisterActivity extends AppCompatActivity {
         nuevoUsuario.setContrasena(password);
         nuevoUsuario.setAdmin(false);
 
-        btnRegister.setEnabled(false);
+        btnRegister.setEnabled(false); // Deshabilitamos el botón de registro.
 
+        // Envía el nuevo usuario a la API REST.
         InfocamServiceClient.obtenerInstancia().registrarUsuario(nuevoUsuario, new ApiCallback<Void>() {
             @Override
             public void onSuccess(Void result) {

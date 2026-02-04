@@ -1,4 +1,4 @@
-#Wed Jan 28 13:00:28 CET 2026
+#Tue Feb 03 21:12:06 CET 2026
 base.0=/Users/erikamartin/Documents/GitHub/app-android/app/build/intermediates/dex/debugAndroidTest/mergeExtDexDebugAndroidTest/classes.dex
 base.1=/Users/erikamartin/Documents/GitHub/app-android/app/build/intermediates/dex/debugAndroidTest/mergeProjectDexDebugAndroidTest/0/classes.dex
 path.0=classes.dex

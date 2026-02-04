@@ -20,15 +20,7 @@ import com.infocam.model.Usuario;
 import com.infocam.network.ApiCallback;
 import com.infocam.network.InfocamServiceClient;
 
-/**
- * PerfilFragment: Información del usuario actual y cierre de sesión.
- * 
- * Conceptos clave para DAM:
- * 1. SharedPreferences: Usamos el gestor de sesión para recuperar los datos
- * persistidos.
- * 2. Intents con Flags: Al cerrar sesión, limpiamos el historial para que no se
- * pueda volver atrás.
- */
+// Esta clase permite al usuario editar sus datos personales y gestionar la sesión. Extiende de "Fragment" por ser una pantalla secundaria.
 public class PerfilFragment extends Fragment {
 
     private TextView txtNombreUsuario;
@@ -37,6 +29,7 @@ public class PerfilFragment extends Fragment {
     private SessionManager preferenciaSesion;
     private DataRepository databaseLocal;
 
+    // Inflamos el layout del fragmento y configuramos los componentes.
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflador, @Nullable ViewGroup contenedor,
@@ -57,6 +50,7 @@ public class PerfilFragment extends Fragment {
         btnGuardar = vistaRaiz.findViewById(R.id.btnGuardarPerfil);
         btnLogout = vistaRaiz.findViewById(R.id.btnLogout);
 
+        // Si el usuario está autenticado, se rellenan los campos con sus datos.
         if (user != null) {
             txtNombreUsuario.setText(user.getNombreUsuario());
             etNombre.setText(user.getNombre());
@@ -64,32 +58,44 @@ public class PerfilFragment extends Fragment {
             etTelefono.setText(String.valueOf(user.getTelefono()));
         }
 
-        btnGuardar.setOnClickListener(v -> ejecutarAccionActualizar());
-
-        btnLogout.setOnClickListener(v -> {
-            // Limpieza antes de salir
-            if (user != null) {
-                databaseLocal.vaciarFavoritosDeUsuario(user.getId());
+        // Configuramos el botón de guardar cambios.
+        btnGuardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ejecutarAccionActualizar();
             }
-            preferenciaSesion.cerrarSesion();
+        });
 
-            // Navegación segura al Login
-            Intent i = new Intent(getActivity(), LoginActivity.class);
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(i);
-            if (getActivity() != null)
-                getActivity().finish();
+        // Configuramos el botón de cierre de sesión.
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (user != null) {
+                    databaseLocal.vaciarFavoritosDeUsuario(user.getId()); // Limpieza de datos temporales.
+                }
+                preferenciaSesion.cerrarSesion(); // Cierre de sesión.
+
+                // Navegación segura al Login.
+                Intent i = new Intent(getActivity(), LoginActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
+
+                if (getActivity() != null) {
+                    getActivity().finish();
+                }
+            }
         });
 
         return vistaRaiz;
     }
 
+    // Método para actualizar el perfil del usuario.
     private void ejecutarAccionActualizar() {
         String n = etNombre.getText().toString().trim();
         String em = etEmail.getText().toString().trim();
         String telStr = etTelefono.getText().toString().trim();
         String pass = etPassword.getText().toString().trim();
-
+        // Validación de campos obligatorios.
         if (TextUtils.isEmpty(n) || TextUtils.isEmpty(em) || TextUtils.isEmpty(telStr)) {
             Toast.makeText(getContext(), "Campos obligatorios", Toast.LENGTH_SHORT).show();
             return;
@@ -103,22 +109,23 @@ public class PerfilFragment extends Fragment {
             return;
         }
 
-        Usuario actual = preferenciaSesion.obtenerUsuario();
-        String tk = preferenciaSesion.getToken();
+        Usuario actual = preferenciaSesion.obtenerUsuario(); // Obtenemos el usuario de la sesión.
+        String tk = preferenciaSesion.getToken(); // Obtenemos el token de la sesión.
 
-        btnGuardar.setEnabled(false);
+        btnGuardar.setEnabled(false); // Deshabilitamos el botón para evitar múltiples clics.
 
         InfocamServiceClient.obtenerInstancia().actualizarUsuario(tk, actual.getId(), n, em, t, pass,
                 new ApiCallback<Usuario>() {
+                    // Método para manejar la respuesta positiva de la API.
                     @Override
                     public void onSuccess(Usuario nuevo) {
-                        btnGuardar.setEnabled(true);
-                        etPassword.setText(""); // Limpiar campo de contraseña
-                        // Mantenemos el token si el API no lo devuelve en este endpoint
+                        btnGuardar.setEnabled(true); // Habilitamos el botón.
+                        etPassword.setText(""); // Limpiamos el campo de contraseña
+                        // Mantenemos el token si el API no lo devuelve en este endpoint.
                         if (nuevo.getToken() == null)
                             nuevo.setToken(tk);
 
-                        preferenciaSesion.guardarSesion(nuevo);
+                        preferenciaSesion.guardarSesion(nuevo); // Guardamos el usuario en la sesión.
                         Toast.makeText(getContext(), "Perfil actualizado", Toast.LENGTH_SHORT).show();
                     }
 
