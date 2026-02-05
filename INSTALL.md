@@ -2,7 +2,7 @@
 
 Esta guía detalla los pasos necesarios para instalar, configurar y ejecutar la aplicación móvil InfoCam, así como los requisitos técnicos mínimos.
 
-## 📱 Requisitos del Dispositivo
+## Requisitos del Dispositivo
 Para asegurar un rendimiento óptimo y compatibilidad con todas las funciones (mapas, GPS), el dispositivo debe cumplir lo siguiente:
 
 *   **Sistema Operativo**: Android 7.0 (Nougat) o superior.
@@ -12,13 +12,13 @@ Para asegurar un rendimiento óptimo y compatibilidad con todas las funciones (m
     *   Conexión a Internet (4G/5G o Wi-Fi).
     *   Almacenamiento: ~50MB libres.
 
-## 🛠️ Permisos Requeridos
+## Permisos Requeridos
 La aplicación solicitará los siguientes permisos al iniciarse:
 *   **Ubicación**: Para mostrar tu posición en el mapa y localizar cámaras cercanas.
 *   **Internet**: Para descargar los datos de tráfico y cámaras en tiempo real.
 *   **Escritura en almacenamiento**: Necesario para el sistema de cache del mapa (osmdroid).
 
-## 🚀 Proceso de Instalación
+## Proceso de Instalación
 
 ### Opción 1: Instalación vía APK (Recomendado para usuarios)
 1. Descarga el archivo `InfoCam.apk`.
@@ -32,7 +32,7 @@ La aplicación solicitará los siguientes permisos al iniciarse:
 3. Conecta un dispositivo físico o inicia un emulador con API 24+.
 4. Pulsa el botón **"Run"** (flecha verde) o usa el comando `./gradlew assembleDebug`.
 
-## 📦 Generación de la APK profesional
+## Generación de la APK profesional
 Si deseas generar una nueva versión de la APK para distribución:
 1. Ve al menú **Build > Build Bundle(s) / APK(s) > Build APK(s)**.
 2. Android Studio generará el archivo en: `app/build/outputs/apk/debug/app-debug.apk`.
