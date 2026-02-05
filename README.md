@@ -20,7 +20,7 @@ El proyecto nace de la necesidad de centralizar la información dispersa de múl
 
 ---
 
-## Excelencia Tecnológica
+## Contrucción de la Aplicación
 
 ### Frontend (Android)
 Desarrollado con un enfoque en la robustez y la experiencia de usuario:
@@ -40,7 +40,7 @@ Una infraestructura escalable y precisa:
 
 ---
 
-## Un Vistazo al Proyecto
+## Un Pequeño Vistazo al Proyecto
 
 | Mapa e Incidencias | Reporte de Usuario |
 |:---:|:---:|
@@ -49,7 +49,7 @@ Una infraestructura escalable y precisa:
 
 ---
 
-## Organización del Proyecto (Android)
+## Organización del Proyecto
 
 La estructura sigue estándares profesionales para facilitar el mantenimiento y la escalabilidad:
 
