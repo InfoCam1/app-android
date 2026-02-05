@@ -5,12 +5,12 @@ import com.google.gson.annotations.SerializedName;
 // Modelo para las incidencias reportadas por usuarios. Estas podrán ser propias o del Gobierno Vasco (estas tendrán en el servidor un "externalId"). Se mostrarán con un marcados naranja, en caso de las propias, o rojo.
 public class Incidencia {
     private Integer id;
-    private int idUsuario; // ID del usuario que creó la incidencia
+    private int idUsuario; // ID del usuario que creó la incidencia.
 
     @SerializedName("usuario")
     private UsuarioNested usuario;
 
-    private String externalId; // ID externa para incidencias de OpenData
+    private String externalId; // ID externa para incidencias de OpenData.
     private String nombre;
     private String tipoIncidencia;
     private String causa;
@@ -61,8 +61,8 @@ public class Incidencia {
 
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
-        // La API de Spring Boot prefiere recibir la relación como un objeto anidado
-        // "usuario": {"id": ...}
+        // La API de Spring Boot prefiere recibir un objeto, con el formato: "usuario":
+        // {"id": ...}.
         if (this.usuario == null) {
             this.usuario = new UsuarioNested();
         }
@@ -133,9 +133,7 @@ public class Incidencia {
         this.externalId = externalId;
     }
 
-    /**
-     * Helper para saber si la incidencia es oficial (OpenData)
-     */
+    // Helper para saber si la incidencia es oficial (de OpenData).
     public boolean isOficial() {
         return externalId != null && !externalId.isEmpty() && !externalId.equals("null");
     }

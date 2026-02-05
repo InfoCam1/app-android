@@ -1,5 +1,6 @@
 package com.infocam.network;
 
+import com.infocam.data.HashearPassword;
 import com.infocam.model.Camara;
 import com.infocam.model.Incidencia;
 import com.infocam.model.LoginRequest;
@@ -15,8 +16,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /* Esta clase es una de las más importantes de toda la aplicación. Actúa como "puente" con el resto de la aplicación: esta le consulará los datos que
- * quiera conocer, mientras que InfocamServiceClient (al conocer cómo usar la interfaz de Retrofit InfocamRemoteApi) será la que hable con el servidor.
- */
+ * quiera conocer, mientras que InfocamServiceClient (al conocer cómo usar la interfaz de Retrofit InfocamRemoteApi) será la que hable con el servidor. */
 public class InfocamServiceClient {
     // Crearemos las variables necesarias para utilizar la librería de Retrofit.
     private static InfocamServiceClient instanciaUnica;
@@ -36,12 +36,15 @@ public class InfocamServiceClient {
     }
 
     // |------------------------------------------------------------------------------|
-    // | GESTIÓN DE USUARIOS                                                          |
+    // | GESTIÓN DE USUARIOS |
     // |------------------------------------------------------------------------------|
 
     public void iniciarSesion(String nombreUsuario, String contrasena, ApiCallback<Usuario> callback) {
+        // Hasheamos la contraseña antes de enviarla al servidor.
+        String contrasenaHasheada = HashearPassword.hashPassword(contrasena);
+
         // "Empaquetamos" los datos en un objeto LoginRequest. Esto nos ayudará a cerciorarnos de que únicamente el usuario y la contraseña se pasan al servidor, no todo el Usuario.
-        LoginRequest credentials = new LoginRequest(nombreUsuario, contrasena);
+        LoginRequest credentials = new LoginRequest(nombreUsuario, contrasenaHasheada);
 
         // ".enqueue()" lanza la petición en segundo plano, para evitar que la aplicación se congele.
         infocamRemoteApi.login(credentials).enqueue(new Callback<Usuario>() {
@@ -79,16 +82,20 @@ public class InfocamServiceClient {
         });
     }
 
-    public void actualizarUsuario(String token, int id, String nombre, String email, long telefono, String password,
+    public void actualizarUsuario(String token, int id, String nombre, String email, long telefono, String contrasena,
             ApiCallback<Usuario> callback) {
-            // Creamos un objeto Usuario con los nuevos datos que hemos introducido en el menú "Perfil".
-                Usuario update = new Usuario();
-                update.setNombre(nombre);
-                update.setEmail(email);
-                update.setTelefono(telefono);
-                if (password != null && !password.isEmpty()) {
-                    update.setPassword(password);
-                }
+        // Creamos un objeto Usuario con los nuevos datos que hemos introducido en el
+        // menú "Perfil".
+        Usuario update = new Usuario();
+        update.setNombre(nombre);
+        update.setEmail(email);
+        update.setTelefono(telefono);
+        if (contrasena != null && !contrasena.isEmpty()) {
+            // Actualizamos la contraseña en el objeto. El propio método setContrasena se
+            // encarga del hasheo.
+            update.setContrasena(contrasena);
+        }
+
         // Es muy importante añadir "Bearer", ya que es el estándar de seguridad para el token. Si no utilizamos ningún token (que asegura que somos la persona autorizada), el servidor puede bloquear la petición al pensar que se trata de un hackeo o similar.
         infocamRemoteApi.actualizarUsuario("Bearer " + token, id, update).enqueue(new Callback<Usuario>() {
             @Override
@@ -108,7 +115,7 @@ public class InfocamServiceClient {
     }
 
     // |------------------------------------------------------------------------------|
-    // | GESTIÓN DE CÁMARAS Y FAVORITOS                                               |
+    // | GESTIÓN DE CÁMARAS Y FAVORITOS |
     // |------------------------------------------------------------------------------|
 
     public void obtenerCamarasActivas(String token, ApiCallback<List<Camara>> callback) {
@@ -168,7 +175,7 @@ public class InfocamServiceClient {
     }
 
     // |------------------------------------------------------------------------------|
-    // | GESTIÓN DE INCIDENCIAS                                                       |
+    // | GESTIÓN DE INCIDENCIAS |
     // |------------------------------------------------------------------------------|
 
     public void obtenerTiposIncidencia(String token, ApiCallback<List<String>> callback) {

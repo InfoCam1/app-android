@@ -1,6 +1,7 @@
+<!-- Los recursos están basados en Material Design -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.InfoCam" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Colors -->
+        <!-- Colores -->
         <item name="colorPrimary">@color/background_dark</item>
         <item name="colorPrimaryVariant">@color/surface_dark</item>
         <item name="colorOnPrimary">@color/text_white</item>
@@ -12,7 +13,7 @@
         <item name="android:statusBarColor">@color/background_dark</item>
         <item name="android:windowBackground">@color/background_dark</item>
         
-        <!-- Text Colors -->
+        <!-- Colores de los textos -->
         <item name="android:textColor">@color/text_white</item>
         <item name="android:textColorHint">@color/text_gray</item>
     </style>

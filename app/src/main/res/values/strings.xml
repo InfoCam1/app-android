@@ -15,12 +15,16 @@
     <string name="perfil_title">Mi Perfil</string>
     <string name="cerrar_sesion">Cerrar Sesión</string>
     <string name="eliminar">Eliminar</string>
-    
-    <!-- Navigation -->
     <string name="nav_map">Mapa</string>
     <string name="nav_fav">Favoritos</string>
     <string name="nav_profile">Perfil</string>
     <string name="tipo_incidencia">Tipo de Incidencia</string>
     <string name="camera_image">Imagen de cámara</string>
     <string name="cerrar">Cerrar</string>
+    <string name="nueva_contrase_a_opcional">Nueva Contraseña (Opcional)</string>
+    <string name="tel_fono">Teléfono</string>
+    <string name="correo_electr_nico">Correo Electrónico</string>
+    <string name="guardar_cambios">Guardar Cambios</string>
+    <string name="passwordPlaceholder">••••••••</string>
+    <string name="no_tienes_cuenta_reg_strate_aqu">¿No tienes cuenta? Regístrate aquí</string>
 </resources>

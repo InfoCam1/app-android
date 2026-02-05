@@ -3113,6 +3113,7 @@ drawable osm_ic_follow_me
 drawable osm_ic_follow_me_on
 drawable osm_ic_ic_map_ortho
 drawable person
+drawable placeholder_camera
 drawable previous
 drawable round_navigation_white_48
 drawable sharp_add_black_36
@@ -3947,6 +3948,7 @@ string character_counter_overflowed_content_description
 string character_counter_pattern
 string clear_text_end_icon_content_description
 string compass
+string correo_electr_nico
 string crear_incidencia_title
 string cyclemap
 string eliminar
@@ -3972,6 +3974,7 @@ string format_distance_only_mile
 string format_distance_only_nautical_mile
 string format_distance_value_unit
 string guardar
+string guardar_cambios
 string hide_bottom_view_on_scroll_behavior
 string hills
 string icon_content_description
@@ -4088,9 +4091,12 @@ string my_location
 string nav_fav
 string nav_map
 string nav_profile
+string no_tienes_cuenta_reg_strate_aqu
 string nombre_incidencia
+string nueva_contrase_a_opcional
 string offline
 string password
+string passwordPlaceholder
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
@@ -4113,6 +4119,7 @@ string side_sheet_behavior
 string snapshot
 string states
 string status_bar_notification_info_overflow
+string tel_fono
 string tipo_incidencia
 string topo
 string unknown

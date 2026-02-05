@@ -45,17 +45,39 @@
         android:layout_marginTop="24dp"
         android:layout_marginBottom="8dp"/>
 
-    <EditText
-        android:id="@+id/etPassword"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@drawable/bg_rounded_input"
-        android:hint="••••••••"
-        android:textColor="@color/text_white"
-        android:textColorHint="@color/text_gray"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:inputType="textPassword"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/text_gray"
+        app:hintEnabled="false"
+        app:boxBackgroundMode="filled"
+        app:boxBackgroundColor="@color/surface_dark"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp">
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="56dp"
+            android:gravity="center_vertical"
+            android:hint="@string/passwordPlaceholder"
+            android:textColor="@color/text_white"
+            android:textColorHint="@color/text_gray"
+            android:paddingStart="16dp"
+            android:paddingEnd="48dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:inputType="textPassword"
+            android:background="@null"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnLogin"
@@ -72,7 +94,7 @@
         android:id="@+id/tvGoToRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="¿No tienes cuenta? Regístrate aquí"
+        android:text="@string/no_tienes_cuenta_reg_strate_aqu"
         android:textColor="@color/primary_green"
         android:layout_marginTop="24dp"
         android:padding="8dp"/>

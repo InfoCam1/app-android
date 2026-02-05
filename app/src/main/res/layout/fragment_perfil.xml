@@ -57,7 +57,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Correo Electrónico"
+            android:text="@string/correo_electr_nico"
             android:textColor="@color/text_gray"
             android:layout_marginBottom="4dp"/>
         <EditText
@@ -74,7 +74,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Teléfono"
+            android:text="@string/tel_fono"
             android:textColor="@color/text_gray"
             android:layout_marginBottom="4dp"/>
         <EditText
@@ -91,7 +91,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nueva Contraseña (Opcional)"
+            android:text="@string/nueva_contrase_a_opcional"
             android:textColor="@color/text_gray"
             android:layout_marginBottom="4dp"/>
         <com.google.android.material.textfield.TextInputLayout
@@ -100,17 +100,29 @@
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/text_gray"
             app:hintEnabled="false"
-            android:layout_marginBottom="24dp">
+            android:layout_marginBottom="24dp"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="@color/surface_dark"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp">
 
             <EditText
                 android:id="@+id/etPasswordPerfil"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@drawable/bg_rounded_input"
-                android:textColor="@color/text_white"
+                android:layout_height="wrap_content"
+                android:minHeight="56dp"
+                android:gravity="center_vertical"
+                android:inputType="textPassword"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
-                android:inputType="textPassword"/>
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:textColor="@color/text_white"
+                android:background="@null"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -118,7 +130,7 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:background="@drawable/bg_rounded_button"
-            android:text="Guardar Cambios"
+            android:text="@string/guardar_cambios"
             android:textColor="@color/background_dark"
             android:textStyle="bold"
             android:layout_marginBottom="16dp"

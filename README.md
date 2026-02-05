@@ -1,56 +1,77 @@
-# 🚦 InfoCam - Gestión de Tráfico del País Vasco
+# InfoCam: Gestión Inteligente del Tráfico en Euskadi
 
-**InfoCam** es una plataforma integral para la monitorización de tráfico en tiempo real, diseñada específicamente para el entorno de Euskadi. El sistema combina una aplicación Android intuitiva con una potente API en Java para ofrecer datos actualizados sobre cámaras de tráfico, incidencias viales y reportes ciudadanos.
+![Banner de InfoCam](img/banner_readme.png)
 
----
+**InfoCam** es una solución integral diseñada para mejorar la movilidad y la seguridad vial en el País Vasco. Esta plataforma permite a los usuarios monitorear el estado del tráfico en tiempo real, consultar cámaras oficiales y colaborar mediante el reporte ciudadano de incidencias.
 
-## ✨ Características Principales
-
-*   **🗺️ Mapa Interactivo**: Visualización completa del estado del tráfico utilizando **OpenStreetMap (osmdroid)**.
-*   **📷 Red de Cámaras**: Acceso a imágenes en tiempo real de las cámaras de Trafikoa (Euskadi), Bizkaia y Bilbao.
-*   **⚠️ Gestión de Incidencias**:
-    *   Sincronización automática con la API oficial de Euskadi.
-    *   Posibilidad de que los usuarios reporten nuevas incidencias (Crowdsourcing).
-*   **🧭 Conversión Inteligente**: Motor de conversión de coordenadas **UTM (ETRS89) a WGS84** integrado en el backend para garantizar precisión absoluta en el mapa.
-*   **🌟 Favoritos**: Guarda tus cámaras más consultadas para un acceso rápido.
-*   **👤 Perfil de Usuario**: Gestión de sesiones y personalización de la experiencia.
+El proyecto nace de la necesidad de centralizar la información dispersa de múltiples fuentes (Trafikoa Euskadi, Bizkaia, Bilbao, etc.) en una experiencia de usuario fluida, moderna y accesible desde dispositivos Android.
 
 ---
 
-## 🛠️ Stack Tecnológico
+## Funcionalidades Clave
+
+- **Mapa Interactivo en Tiempo Real**: Visualización dinámica de cámaras e incidencias sobre una capa de OpenStreetMap.
+- **Red de Cámaras Unificada**: Acceso instantáneo a las imágenes en vivo de los principales nodos de tráfico de la región.
+- **Gestión de Incidencias 360°**: 
+    - Sincronización automática con fuentes gubernamentales.
+    - Sistema de **Crowdsourcing**: Los usuarios pueden reportar accidentes, retenciones u obras de manera inmediata.
+- **Sistema de Favoritos**: Personaliza tu experiencia guardando las rutas y cámaras que más te importan.
+- **Comunidad y Perfiles**: Gestión de usuarios para fomentar la participación activa y personalizada.
+
+---
+
+## Excelencia Tecnológica
 
 ### Frontend (Android)
-*   **Lenguaje**: Java 17+
-*   **Arquitectura**: MVC / Fragmentos.
-*   **Librerías Clave**:
-    *   `osmdroid`: Visualización de mapas offline/online.
-    *   `Glide`: Carga eficiente de imágenes de cámaras.
-    *   `Material Design 3`: Interfaz moderna y adaptable.
-    *   `Retrofit`: Comunicación avanzada y eficiente con la API REST (ahora implementado).
+Desarrollado con un enfoque en la robustez y la experiencia de usuario:
+- **Lenguaje**: Java 17.
+- **Arquitectura**: Patrón **MVC** para una separación de responsabilidades clara.
+- **Tecnologías Core**:
+    - `osmdroid`: Control total sobre la renderización de mapas.
+    - `Retrofit & Gson`: Comunicación eficiente y tipada con la API REST.
+    - `Glide`: Optimización de memoria en la carga de imágenes de cámaras.
+    - `Material Design 3`: UI/UX moderna con soporte para temas dinámicos.
 
 ### Backend (Java API)
-*   **Framework**: Spring Boot 3.x
-*   **Base de Datos**: MySQL
-*   **Librerías Clave**:
-    *   `Proj4J`: Transformación de sistemas de referencia geográficos.
-    *   `Spring Data JPA`: Persistencia de datos simplificada.
+Una infraestructura escalable y precisa:
+- **Framework**: Spring Boot 3.x.
+- **Base de Datos**: MySQL (JPA/Hibernate).
+- **Geolocalización**: Integración de `Proj4J` para la conversión precisa de coordenadas **UTM (ETRS89) a WGS84**, garantizando que cada punto en el mapa sea exacto.
 
 ---
 
-## 📸 Previsualización
+## Un Vistazo al Proyecto
 
-*   **Mapa Principal**: Con filtros dinámicos y localización precisa.
-*   **Reporte de Incidencias**: Interfaz guiada mediante botones flotantes inteligentes.
-
----
-
-## 🚀 Instalación
-Para instrucciones detalladas sobre cómo compilar y ejecutar el proyecto, consulta la guía de instalación:
-👉 **[Guía de Instalación (INSTALL.md)](INSTALL.md)**
+| Mapa e Incidencias | Reporte de Usuario |
+|:---:|:---:|
+| ![Pantalla de Mapa](img/captura_filtros.jpg) | ![Pantalla de Incidencia](img/captura_incidencia.jpg) |
+| *Visualización dinámica con filtros.* | *Interfaz intuitiva para reportes rápidos.* |
 
 ---
 
-## 📄 Créditos y Desarrollo
-Este proyecto ha sido desarrollado como parte del segundo reto de segundo curso del ciclo formativo de **Desarrollo de Aplicaciones Multiplataforma (DAM)**.
+## Organización del Proyecto (Android)
 
-Desarrollado por [InfoCam] - 2026.
+La estructura sigue estándares profesionales para facilitar el mantenimiento y la escalabilidad:
+
+- `com.infocam.ui`: Actividades y Fragmentos que gestionan la interacción del usuario.
+- `com.infocam.model`: POJOs [Plain Old Java Objects] y modelos de datos (Cámara, Incidencia, Usuario).
+- `com.infocam.network`: Configuración de Retrofit y servicios API.
+- `com.infocam.adapter`: Gestión de listas dinámicas y RecyclerViews.
+
+---
+
+## Instalación y Configuración
+
+Para poner en marcha el proyecto en tu entorno local o instalar la aplicación en un dispositivo físico, consulta nuestra guía detallada:
+
+Instrucciones detalladas en: **[Guía de Instalación (INSTALL.md)](INSTALL.md)**
+
+---
+
+## Contexto Académico
+
+Este proyecto ha sido desarrollado como el **Reto 2** del segundo curso del Ciclo Formativo de Grado Superior en **Desarrollo de Aplicaciones Multiplataforma (DAM)**.
+
+---
+
+Desarrollado por el equipo de **InfoCam** - 2026.

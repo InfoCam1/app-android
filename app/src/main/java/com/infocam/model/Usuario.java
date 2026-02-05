@@ -1,6 +1,7 @@
 package com.infocam.model;
 
 import com.google.gson.annotations.SerializedName;
+import com.infocam.data.HashearPassword;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -13,8 +14,10 @@ public class Usuario {
     private boolean isAdmin; // Desde la aplicación móvil, ningún usuario que se registre podrá ser nunca
                              // "Admin", por lo que este campo siempre será false.
 
-    private String username;
-    private String password;
+    @SerializedName("username")
+    private String nombreUsuario;
+    @SerializedName("password")
+    private String contrasena;
 
     @SerializedName(value = "nombre", alternate = { "firstName" })
     private String nombre;
@@ -32,12 +35,12 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(Integer id, boolean isAdmin, String username, String password, String nombre, String apellido,
+    public Usuario(Integer id, boolean isAdmin, String nombreUsuario, String contrasena, String nombre, String apellido,
             String email, long telefono, String token) {
         this.id = id;
         this.isAdmin = isAdmin;
-        this.username = username;
-        this.password = password;
+        this.nombreUsuario = nombreUsuario;
+        this.contrasena = contrasena;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
@@ -61,20 +64,20 @@ public class Usuario {
         isAdmin = admin;
     }
 
-    public String getUsername() {
-        return username;
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
-    public String getPassword() {
-        return password;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setContrasena(String contrasena) {
+        this.contrasena = HashearPassword.hashPassword(contrasena);
     }
 
     public String getNombre() {
