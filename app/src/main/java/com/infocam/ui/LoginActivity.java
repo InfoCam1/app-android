@@ -3,6 +3,7 @@ package com.infocam.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -60,7 +61,8 @@ public class LoginActivity extends AppCompatActivity {
         findViewById(R.id.tvGoToRegister).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(this, RegisterActivity.class)); // Se inicia la actividad de registro.
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class)); // Se inicia la actividad de
+                                                                                       // registro.
             }
         });
     }

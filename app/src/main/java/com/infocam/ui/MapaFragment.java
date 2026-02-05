@@ -116,7 +116,8 @@ public class MapaFragment extends Fragment {
         // Lógica del botón que centra la ubicación del usuario en el mapa.
         vista.findViewById(R.id.btnMyLocation).setOnClickListener(v -> {
             if (capaPosicionUsuario != null && capaPosicionUsuario.getMyLocation() != null) {
-                visorMapa.getController().animateTo(capaPosicionUsuario.getMyLocation()).setZoom(14.0);
+                visorMapa.getController().animateTo(capaPosicionUsuario.getMyLocation());
+                visorMapa.getController().setZoom(14.0);
             } else {
                 Toast.makeText(getContext(), "Buscando señal GPS...", Toast.LENGTH_SHORT).show();
                 verificarPermisosGps(); // Reintenta activar si no estaba activa.
