@@ -1,4 +1,6 @@
+<!-- Fragmento que muestra los productos favoritos del usuario. -->
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Para crear un fragmento, se utiliza la librería de AndroidX. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,7 +16,7 @@
         android:textColor="@color/text_white"
         android:textStyle="bold"
         android:gravity="center"/>
-
+    <!-- El RecyclerView se utiliza para mostrar una lista de elementos. En este caso, se utiliza para mostrar los productos favoritos del usuario. -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerFavoritos"
         android:layout_width="match_parent"

@@ -1,3 +1,4 @@
+<!-- Un "Spinner" es un menú desplegable que se utiliza en Android para mostrar una lista de opciones. Este archivo es leído por "CrearIncidenciaActivity" para mostrar los tipo de incidencia disponibles. -->
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/text1"
@@ -7,3 +8,4 @@
     android:textColor="@color/text_white"
     android:textSize="16sp"
     android:background="@color/surface_dark" />
+<!-- Se hace una xml a parte para que el estilo se aplique a cada elemento del spinner de manera automática, sin importar cuántos elementos existan. -->

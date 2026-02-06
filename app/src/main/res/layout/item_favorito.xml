@@ -1,3 +1,4 @@
+<!-- Item de la lista de favoritos. Es un "CardView" que muestra la información de una cámara favorita. -->
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -18,6 +19,7 @@
         android:padding="12dp"
         android:gravity="center_vertical">
 
+        <!-- Imagen de la cámara. Se utiliza "ShapeableImageView" para que tenga bordes redondeados. -->
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivFotoFav"
             android:layout_width="80dp"

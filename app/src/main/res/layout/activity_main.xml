@@ -1,10 +1,13 @@
+<!-- Actividad principal que contiene el FragmentContainerView y el BottomNavigationView. -->
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Se utiliza "androidx" para indicar que se está utilizando la librería de AndroidX. Hemos utilizado esta librería porque permite retrocompatibilidad con versiones antiguas de Android y da acceso a las últimas optimizaciones y herramientas de diseño. -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_dark">
 
+    <!-- Se utiliza un FragmentContainerView para permitir que los fragmentos se muestren en primer plano y el BottomNavigationView (barra de navegación inferior) en segundo plano.-->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
@@ -23,3 +26,12 @@
         app:menu="@menu/menu_bottom_nav" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!-- La elección de qué layout usar (ConstraintLayout, LinearLayout, RelativeLayout, etc.) y demás componentes ha dependido de lo siguiente:
+    - ConstraintLayout: Para estructuras complejas y planas.
+    - LinearLayout: Para alinear elementos en filas o columnas (como los formularios).
+    - RelativeLayout: Para superponer elementos (como las capas encima de mapas).
+    - ScrollView: Para contenido que excede el tamaño de la pantalla.
+    - RecyclerView: Para listas largas.
+    - TextInputLayout: Para campos de texto. Hemos utilizado el diseño predefinido de Material Design.
+    - CardView/ShapeableImageView: Para estética (sombras y bordes). -->
