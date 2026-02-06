@@ -21,7 +21,7 @@ La aplicación solicitará los siguientes permisos al iniciarse:
 ## Proceso de Instalación
 
 ### Opción 1: Instalación vía APK (Recomendado para usuarios)
-1. Descarga el archivo `InfoCam.apk`.
+1. Descarga el archivo `InfoCam.apk`. Se encuentra en la raíz de este proyecto.
 2. Habilita la opción **"Instalar aplicaciones de fuentes desconocidas"** en los ajustes de seguridad de tu teléfono.
 3. Abre el archivo APK y sigue las instrucciones de instalación.
 4. Concede los permisos de ubicación cuando se te soliciten.
